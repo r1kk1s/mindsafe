@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> <!--ширина странички равна ширине девайса, и масштаб по умолчанию равен 1-->
+        <title>{% block title %}{% endblock title %}</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}">Главная</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <!--<ul class="nav nav-tabs me-auto"> подтянуть javascript -->
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'review' %}">Отзывы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'education' %}">Образование</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'consultation' %}">Получить консультацию</a>
+                        </li>
+                    </ul>
+                    {% if user.is_authenticated %}
+                    <div class="auth collapse navbar-collapse" id="navbarCollapse">
+                            <strong id="user">{{ user.username }} |</strong>
+                            <a class="btn btn-danger" href="{% url 'account_logout' %}">Выйти</a>
+                    </div>
+                    {% else %}
+                    <div class="auth collapse navbar-collapse" id="navbarCollapse">
+                        <a class="btn btn-primary" href="{% url 'account_login' %}">Войти</a>
+                        <a class="btn btn-success" href="{% url 'account_signup' %}">Зарегистрироваться</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock content %}
+        <!-- Bootstrap JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <!-- JavaScript -->
+        <script src="{% static 'js/base.js' %}"></script>
+    </body>
+</html>

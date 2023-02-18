@@ -1,0 +1,36 @@
+body {
+    padding: 1rem;
+    padding-top: 5rem;
+    background-color: ghostwhite;
+}
+
+.navbar {
+    background-color: #ffccf7;
+}
+
+.auth {
+    flex-grow: unset;
+    
+}
+
+a.btn {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#user {
+    font-size: large;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 30px;
+}
+
+h1 {
+    color: purple;
+}
