@@ -1,0 +1,10 @@
+{% extends "_base.html" %}
+
+{% block title %}Главная страница{% endblock title %}
+
+{% block content %}
+    <h1>{{ home_info.title }}</h1>
+    <br />
+    <img class="my_photo" src="{{ home_info.photo.url }}" alt="..."/>
+    <p>{{ home_info.description }}</p>
+{% endblock content%}

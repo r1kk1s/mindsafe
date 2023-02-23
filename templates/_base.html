@@ -27,7 +27,13 @@
                             <a class="nav-link" href="{% url 'education' %}">Образование</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'consultation' %}">Получить консультацию</a>
+                            <a class="nav-link" href="{% url 'consultation_list' %}">Получить консультацию</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}">Мои контакты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'my_consultations' %}">Ваши записи</a>
                         </li>
                     </ul>
                     {% if user.is_authenticated %}

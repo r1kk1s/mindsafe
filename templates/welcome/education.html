@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+
+{% block title %}Образование{% endblock title %}
+
+{% block content %}
+    <h1>Мои дипломы или квалификация</h1>
+    {% for diplom in diplomas %}
+        <h3>{{ diplom.title }}</h3>
+        <br />
+        <img class="diplom" src="{{ diplom.photo.url }}" alt="..."/>
+        <p>{{ diplom.description }}</p>
+    {% endfor %}
+{% endblock content%}

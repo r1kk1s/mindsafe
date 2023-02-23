@@ -16,5 +16,10 @@ class CustomUserAdmin(UserAdmin):
         "username",
         "is_superuser",
     ]
+    list_display_links = [
+        "email",
+        "username",
+    ]
+    
 
 admin.site.register(CustomUser, CustomUserAdmin)

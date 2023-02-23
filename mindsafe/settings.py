@@ -45,10 +45,11 @@ INSTALLED_APPS = [
     "crispy_forms",
 	"crispy_bootstrap5",
 	"allauth",
-	"allauth.account",
+	"allauth.account",  
     # Local
     "accounts.apps.AccountsConfig",
     "welcome.apps.WelcomeConfig",
+    "consultations.apps.ConsultationsConfig",
 ]
 
 MIDDLEWARE = [
@@ -129,9 +130,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -154,3 +158,4 @@ AUTHENTICATION_BACKENDS = (
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # нужно добавить вывод через сообщения на почту
 LOGIN_REDIRECT_URL = "home"
 ACCOUNT_LOGOUT_REDIRECT = "home"
+ACCOUNT_SESSION_REMEMBER = True

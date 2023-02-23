@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Ваши консультации{% endblock title %}
+
+{% block content %}
+    <h1>Здесь будут отображаться Ваши записи, {{ user }}!</h1>
+    <br />
+    {% for cons in consultations %}
+    <h3>{{ cons.title }}</h3>
+    <p>{{ cons.date }}</p>
+    {% endfor %}
+{% endblock content %}

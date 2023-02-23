@@ -1,13 +1,15 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import HomePageView, ReviewPageView, EducationPageView, ContactPageView, ConsultationPageView
+from .views import (show_review_page_view,
+                    show_education_page_view,
+                    show_welcome_page_view,
+                    show_my_contact)
 
 
 urlpatterns = [
-    path("", HomePageView.as_view(), name="home"),
-    path("review/", ReviewPageView.as_view(), name="review"),
-    path("education/", EducationPageView.as_view(), name="education"),
-    path("contact/", ContactPageView.as_view(), name="contact"),
-    path("consultation/", ConsultationPageView.as_view(), name="consultation")
+    path("", show_welcome_page_view, name="home"),
+    path("review/", show_review_page_view, name="review"),
+    path("education/", show_education_page_view, name="education"),
+    path("contact/", show_my_contact, name="contact"),
 ]

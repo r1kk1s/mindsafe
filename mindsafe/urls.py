@@ -8,4 +8,5 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Local apps
     path("", include("welcome.urls")),
+    path("consultations/", include("consultations.urls")),
 ]

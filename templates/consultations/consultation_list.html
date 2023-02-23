@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+
+{% block title %}Список консультаций{% endblock title %}
+
+{% block content %}
+    <h1>Услуги</h1>
+    <div class="cards">
+        {% for card in consultation_cards %}
+        <div class="card" style="width: 18rem;">
+            {% if photo %}
+            <img src="{{ card.photo.url }}" class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ card.title }}</h5>
+                <p class="card-text">{{ card.description|truncatechars:100 }}</p>
+                <a href="{{ card.get_absolute_url }}" class="btn btn-success">Записаться на приём</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
