@@ -45,5 +45,4 @@ def show_user_consultation_list_view(request):
 
     return render(request,
                   "consultations/my_consultations.html",
-                  {"consultations": get_list_or_404(ConsultationEvent,
-                                                    patient=request.user)})
+                  {"consultations": ConsultationEvent.objects.filter(patient=request.user)})# get_list_or_404(ConsultationEvent,patient=request.user)})

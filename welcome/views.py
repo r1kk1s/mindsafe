@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.contrib.auth import get_user_model
 
 from .models import Welcome, Diplomas
@@ -29,4 +29,4 @@ def show_my_contact(request):
     """Показывает контакты администратора"""
 
     return render(request, "welcome/contact.html",
-                  {"superuser": get_list_or_404(get_user_model(), is_superuser=True)})
+                  {"superuser": get_object_or_404(get_user_model(), is_superuser=True)})

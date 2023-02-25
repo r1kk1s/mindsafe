@@ -6,6 +6,7 @@
 {% block content %}
     <h1>Регистрация</h1>
     <br />
+    <p><strong>Обязательные поля отмечены знаком "*"</strong></p>
     <form method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form|crispy }}

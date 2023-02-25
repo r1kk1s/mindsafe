@@ -3,7 +3,12 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    contact = models.CharField(max_length=32, blank=True, verbose_name="Номер телефона")
+
+    contact = models.CharField(
+        max_length=16,
+        blank=True,
+        verbose_name="Номер телефона",
+    )
 
     class Meta:
         db_table = "users"

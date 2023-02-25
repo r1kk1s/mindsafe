@@ -16,6 +16,3 @@ class ConsultationEventForm(forms.ModelForm):
             "description",
             "date_time",
         )
-        
-        # widgets = {
-        # }
