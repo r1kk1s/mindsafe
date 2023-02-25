@@ -1,23 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404
 from django.contrib.auth import get_user_model
 
 from .models import Welcome, Diplomas
-from .services import get_objects_from_model 
-
 
 
 def show_welcome_page_view(request):
     """Показывает страницу приветствия"""
-
+    
     return render(request, "welcome/home.html",
-                  {"home_info": get_objects_from_model(Welcome)})
+                  {"home_info": get_list_or_404(Welcome)[0]})
 
 
 def show_education_page_view(request):
     """Показывает страницу с дипломами"""
 
     return render(request, "welcome/education.html",
-                  {"diplomas": get_objects_from_model(Diplomas)})
+                  {"diplomas": Diplomas.objects.all()})
+                  # {"diplomas": get_list_or_404(Diplomas)})
 
 
 def show_review_page_view(request):
@@ -30,4 +29,4 @@ def show_my_contact(request):
     """Показывает контакты администратора"""
 
     return render(request, "welcome/contact.html",
-                  {"superuser": get_objects_from_model(get_user_model(), is_superuser=True)})
+                  {"superuser": get_list_or_404(get_user_model(), is_superuser=True)})

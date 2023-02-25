@@ -7,8 +7,12 @@ class Welcome(models.Model):
     photo = models.ImageField(upload_to="photos/me/%Y/%m/%d/", verbose_name="Фото")
 
     class Meta:
+        db_table = "welcome"
         verbose_name = "домашнюю страницу"
         verbose_name_plural = "Домашняя страница"
+
+    def __str__(self):
+        return self.title
 
 
 
@@ -18,5 +22,9 @@ class Diplomas(models.Model):
     photo = models.ImageField(upload_to="photos/diplomas/%Y/%m/%d/", verbose_name="Фото")
 
     class Meta:
+        db_table = "diplomas"
         verbose_name = "Диплом"
         verbose_name_plural = "Дипломы"
+
+    def __str__(self):
+        return self.title

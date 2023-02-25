@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '192.168.0.15',
     '127.0.0.1',
+    "172.20.10.5",
 ]
 
 
@@ -155,7 +156,16 @@ AUTHENTICATION_BACKENDS = (
 	"django.contrib.auth.backends.ModelBackend",
 	"allauth.account.auth_backends.AuthenticationBackend",
 )
+ACCOUNT_FORMS = {
+    'signup': 'accounts.forms.CustomSignupForm',
+}
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # нужно добавить вывод через сообщения на почту
 LOGIN_REDIRECT_URL = "home"
 ACCOUNT_LOGOUT_REDIRECT = "home"
 ACCOUNT_SESSION_REMEMBER = True
+
+
+
+# widjets
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
+DATE_TIME_INPUT_FORMATS = ['%d/%m/%Y %H:%M']

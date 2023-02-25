@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.db import models
 
 
-class ConsultationCards(models.Model):
+class AvailableConsultation(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -16,8 +16,9 @@ class ConsultationCards(models.Model):
     time_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = "Карточка услуг"
-        verbose_name_plural = "Карточки услуг"
+        db_table = "services"
+        verbose_name = "Услугу"
+        verbose_name_plural = "Услуги"
         ordering = ["time_created"]
     
     def __str__(self):
@@ -28,15 +29,34 @@ class ConsultationCards(models.Model):
 
 
 class ConsultationEvent(models.Model):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False
+    )
     consultation = models.ForeignKey(
-        ConsultationCards,
+        AvailableConsultation,
         on_delete=models.CASCADE,
         related_name="consultation",
         verbose_name="Выбранная услуга"
     )
     patient = models.ForeignKey(
         get_user_model(),
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="user",
+        verbose_name="Пациент"
     )
     description = models.TextField(blank=True, verbose_name="Опишите вашу проблему (необязательное поле)")
-    date = models.DateTimeField(verbose_name="Выбирете дату")
+    date_time = models.DateTimeField(verbose_name="Выбирете дату и время")
+
+    class Meta:
+        db_table = "records"
+        verbose_name = "Запись"
+        verbose_name_plural = "Записи"
+        ordering = ["date_time"]
+
+    def __str__(self):
+        return self.consultation.title
+    
+    def get_absolute_url(self):
+        return reverse("my_consultations")

@@ -6,8 +6,10 @@
 {% block content %}
     <h1>Здесь будут отображаться Ваши записи, {{ user }}!</h1>
     <br />
+    <br />
     {% for cons in consultations %}
-    <h3>{{ cons.title }}</h3>
-    <p>{{ cons.date }}</p>
+    <h3>{{ cons.consultation }}</h3>
+    <h4>{{ cons.date_time }}</h4>
+    <br />
     {% endfor %}
 {% endblock content %}

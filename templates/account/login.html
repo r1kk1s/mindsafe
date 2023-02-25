@@ -8,6 +8,7 @@
     <br />
     <form method="post" action="{% url 'account_login' %}">
         {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}" />
         {{ form|crispy }}
         <button class="btn btn-success" type="submit">Войти</button>
     </form>

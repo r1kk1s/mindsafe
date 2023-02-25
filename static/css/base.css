@@ -32,5 +32,9 @@ a.btn {
 }
 
 h1 {
-    color: purple;
+    color: rgb(84, 0, 84);
+}
+
+.my_photo {
+    width: 30%;
 }

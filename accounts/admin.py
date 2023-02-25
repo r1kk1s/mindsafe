@@ -8,9 +8,9 @@ from .forms import CustomUserCreationForm, CustomUserChangeForm
 CustomUser = get_user_model()
 
 class CustomUserAdmin(UserAdmin):
+    model = CustomUser
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
-    model = CustomUser
     list_display = [
         "email",
         "username",
@@ -20,6 +20,17 @@ class CustomUserAdmin(UserAdmin):
         "email",
         "username",
     ]
-    
+    fieldsets = (
+        (None, {
+            "fields": (("first_name", "last_name"), "email", "contact")
+        }),
+        ("Логин и пароль", {
+            "classes": ("collapse",),
+            "fields": ("username", "password"),
+        }),
+        ("Права доступа", {
+            "fields": ("is_staff", "groups",)
+        })
+    )
 
 admin.site.register(CustomUser, CustomUserAdmin)

@@ -1,32 +1,21 @@
 from django import forms
-from django.contrib.admin.widgets import AdminDateWidget
 
 from .models import ConsultationEvent
 
 
 class ConsultationEventForm(forms.ModelForm):
 
-    def __init__(self, user, consultation, *args, **kwargs):
-        self.user = user
-        self.consultation = consultation
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields["date_time"].input_formats = ['%d/%m/%Y %H:%M']
+
 
     class Meta:
         model = ConsultationEvent
         fields = (
             "description",
-            "date",
+            "date_time",
         )
         
-        widgets = {
-            "date": AdminDateWidget,
-        }
-
-
-    def save(self, *args, **kwargs):
-        """Добавляет в поле patient текущего пользователя,
-        а в поле consultation выбранную услугу при записи в таблицу БД"""
-
-        self.instance.patient = self.user
-        self.instance.consultation = self.consultation
-        return super().save(*args, **kwargs)
+        # widgets = {
+        # }
