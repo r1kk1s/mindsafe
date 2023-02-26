@@ -29,7 +29,7 @@ class CustomUserChangeForm(UserChangeForm):
 
 class CustomSignupForm(SignupForm):
 
-    contact = forms.CharField(
+    phone = forms.CharField(
         label="Номер телефона (без пробелов, скобок и дефисов)",
         required=False,
         widget=forms.TextInput(attrs={
@@ -40,17 +40,21 @@ class CustomSignupForm(SignupForm):
     class Meta:
         model = get_user_model()
 
-    def clean_contact(self):
-        contact = self.cleaned_data['contact']
+    def clean_phone(self):
+        phone = self.cleaned_data['phone']
         pattern = re.compile(r"^(\+7|8)\d{10}$")
-        if not pattern.match(contact):
+        if not pattern.match(phone):
             raise ValidationError("Номер телефона должен начинаться с '+7' или с '8' и быть не длиннее 10 цифр.")
-        self.contact = contact
-        return contact
-
+        self.phone = phone
+        return phone
     
     def save(self, request):
+        """
+        В документации django-allauth при добавлении в форму пользовательских полей
+        необходимо явно присваивать этим полям значение
+        """
+        
         user = super(CustomSignupForm, self).save(request)
-        user.contact = self.contact
+        user.phone = self.phone
         user.save()
         return user

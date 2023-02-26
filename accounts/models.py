@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
 
-    contact = models.CharField(
+    phone = models.CharField(
         max_length=16,
         blank=True,
         verbose_name="Номер телефона",
