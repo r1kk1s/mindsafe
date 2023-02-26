@@ -22,15 +22,20 @@ class CustomUserAdmin(UserAdmin):
     ]
     fieldsets = (
         (None, {
-            "fields": (("first_name", "last_name"), "email", "contact")
+            "classes": ("wide",),
+            "fields": ("username", "password",
+                       ("first_name", "last_name"),
+                       "email", "phone")
         }),
-        ("Логин и пароль", {
-            "classes": ("collapse",),
-            "fields": ("username", "password"),
-        }),
+        
         ("Права доступа", {
+            "classes": ("collapse",),
             "fields": ("is_staff", "groups",)
-        })
+        }),
+        ("Важные даты", {
+            "classes": ("wide",),
+            "fields": ("last_login", "date_joined")
+        }),
     )
 
 admin.site.register(CustomUser, CustomUserAdmin)
