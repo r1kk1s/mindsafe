@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     "crispy_forms",
 	"crispy_bootstrap5",
 	"allauth",
-	"allauth.account",  
+	"allauth.account",
+    "tempus_dominus",
     # Local
     "accounts.apps.AccountsConfig",
     "welcome.apps.WelcomeConfig",
@@ -164,8 +165,7 @@ LOGIN_REDIRECT_URL = "home"
 ACCOUNT_LOGOUT_REDIRECT = "home"
 ACCOUNT_SESSION_REMEMBER = True
 
-
-
-# widjets
-DATE_INPUT_FORMATS = ['%d-%m-%Y']
-DATE_TIME_INPUT_FORMATS = ['%d/%m/%Y %H:%M']
+# tempus_dominus widget
+TEMPUS_DOMINUS_LOCALIZE = True
+TEMPUS_DOMINUS_INCLUDE_ASSETS = True
+TEMPUS_DOMINUS_DATETIME_FORMAT = '%d/%m/%Y %H:%M'

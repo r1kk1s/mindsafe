@@ -38,3 +38,10 @@ h1 {
 .my_photo {
     width: 30%;
 }
+
+.input-group-text {
+    padding: 0.7rem 1.5rem;
+    font-size: 1.3rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

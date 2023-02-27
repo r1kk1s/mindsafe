@@ -9,11 +9,11 @@ class CustomUserTests(TestCase):
             username="robert",
             email="robert@example.com",
             password="testpass123",
-            contact="89183331122"
+            phone="89183331122"
         )
         self.assertEqual(user.username, "robert")
         self.assertEqual(user.email, "robert@example.com")
-        self.assertEqual(user.contact, "89183331122")
+        self.assertEqual(user.phone, "89183331122")
         self.assertTrue(user.is_active)
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
@@ -24,11 +24,11 @@ class CustomUserTests(TestCase):
             username="superadmin",
             email="superadmin@email.com",
             password="testpass123",
-            contact="+79180902217"
+            phone="+79180902217"
         )
         self.assertEqual(admin_user.username, "superadmin")
         self.assertEqual(admin_user.email, "superadmin@email.com")
-        self.assertEqual(admin_user.contact, "+79180902217")
+        self.assertEqual(admin_user.phone, "+79180902217")
         self.assertTrue(admin_user.is_active)
         self.assertTrue(admin_user.is_staff)
         self.assertTrue(admin_user.is_superuser)
