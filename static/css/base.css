@@ -45,3 +45,12 @@ h1 {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
+.nav-link {
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+.navbar-nav .nav-link.active {
+    background-color: ghostwhite;
+}
