@@ -1,6 +1,8 @@
 from django.urls import path
 
-from .views import show_consultation_detail_view, show_available_consultation_list_view, show_user_consultation_list_view
+from .views import (show_consultation_detail_view,
+                    show_available_consultation_list_view,
+                    show_user_consultation_list_view)
 
 
 urlpatterns = [

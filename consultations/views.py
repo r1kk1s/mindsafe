@@ -43,6 +43,10 @@ def show_consultation_detail_view(request, pk):
 def show_user_consultation_list_view(request):
     """Веб-сервис, отображающий записи текущего пользователя"""
 
-    return render(request,
-                  "consultations/my_consultations.html",
-                  {"consultations": ConsultationEvent.objects.filter(patient=request.user)})# get_list_or_404(ConsultationEvent,patient=request.user)})
+    return render(
+        request,
+        "consultations/my_consultations.html",
+        {"confirmed_consultations": ConsultationEvent.objects.filter(patient=request.user,
+                                                                     approved=True),
+        "non_confirmed_consultations": ConsultationEvent.objects.filter(patient=request.user,
+                                                                        approved=False)})

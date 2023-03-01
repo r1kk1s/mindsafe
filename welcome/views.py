@@ -8,7 +8,7 @@ def show_welcome_page_view(request):
     """Показывает страницу приветствия"""
     
     return render(request, "welcome/home.html",
-                  {"home_info": get_list_or_404(Welcome)[0]})
+                  {"home_info": get_list_or_404(Welcome, displayed=True)[0]})
 
 
 def show_education_page_view(request):
@@ -17,13 +17,6 @@ def show_education_page_view(request):
     return render(request, "welcome/education.html",
                   {"diplomas": Diplomas.objects.all()})
                   # {"diplomas": get_list_or_404(Diplomas)})
-
-
-def show_review_page_view(request):
-    """Показывает страницу с отзывами"""
-
-    return render(request, "review.html")
-
 
 def show_my_contact(request):
     """Показывает контакты администратора"""

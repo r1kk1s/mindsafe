@@ -11,6 +11,7 @@ urlpatterns = [
     # Local apps
     path("", include("welcome.urls")),
     path("consultations/", include("consultations.urls")),
+    path("review/", include("review.urls")),
 ]
 
 if settings.DEBUG:

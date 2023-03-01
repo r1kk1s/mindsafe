@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+
+{% block title %}Отзывы{% endblock title %}
+
+{% block content %}
+    <h1>Отзывы</h1>
+    <br />
+    <div>
+        <h3>Добавьте свой отзыв</h3>
+        <a class="btn btn-success" href="{% url 'add_review' %}">Написать отзыв</a>
+    </div>
+    {% for review in reviews %}
+        <br />
+        <hr>
+        <div class="review">
+            <div class="review-title" >
+                <h4>{{ review.consultation }}</h4>
+                <strong>{{ review.patient }}</strong>
+                <h6>{{ review.time_created }}</h6>
+            </div>
+            <p>{{ review.review }}</p>
+        </div>
+    {% endfor %}
+{% endblock content%}

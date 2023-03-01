@@ -8,11 +8,13 @@ class WelcomeAdmin(admin.ModelAdmin):
     list_display = [
         "title",
         "description",
-        "photo", 
+        "photo",
+        "displayed",
     ]
     list_display_links = [
         "title",
     ]
+    list_editable = ["displayed"]
 
     
 

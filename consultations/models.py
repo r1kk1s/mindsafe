@@ -46,8 +46,9 @@ class ConsultationEvent(models.Model):
         related_name="user",
         verbose_name="Пациент"
     )
-    description = models.TextField(blank=True, verbose_name="Опишите вашу проблему (необязательное поле)")
+    description = models.TextField(blank=True, null=True, verbose_name="Опишите вашу проблему (необязательное поле)")
     date_time = models.DateTimeField(verbose_name="Выбирете дату и время")
+    approved = models.BooleanField(blank=True, default=False, verbose_name="Одобрить")
 
     class Meta:
         db_table = "records"
@@ -57,6 +58,3 @@ class ConsultationEvent(models.Model):
 
     def __str__(self):
         return self.consultation.title
-    
-    def get_absolute_url(self):
-        return reverse("my_consultations")

@@ -1,7 +1,6 @@
-let href = document.location.href
 let aArray = document.querySelectorAll('a.nav-link')
-aArray.forEach(function(a) {
-  if (a.href == href) {
+aArray.forEach((a) => {
+  if (a.href == document.location.href) {
     a.classList.add("active");
   }
 })

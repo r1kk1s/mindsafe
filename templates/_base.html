@@ -28,17 +28,19 @@
                             </li>
                         {% endfor %}
                     </ul>
-                    {% if user.is_authenticated %}
-                    <div class="auth collapse navbar-collapse" id="navbarCollapse">
-                            <strong id="user">{{ user.username }} |</strong>
-                            <a class="btn btn-outline-danger" href="{% url 'account_logout' %}">Выйти</a>
-                    </div>
+                    <div class="auth collapse navbar-collapse" id="navbarCollapse"></div>
+                    {% if user.is_superuser %}
+                        <a class="btn btn-outline-success" href="/admin/">Админ панель</a>
+                        <strong id="user">| {{ user.username }} |</strong>
+                        <a class="btn btn-outline-danger" href="{% url 'account_logout' %}">Выйти</a>
+                    {% elif user.is_authenticated %}
+                        <strong id="user">{{ user.username }} |</strong>
+                        <a class="btn btn-outline-danger" href="{% url 'account_logout' %}">Выйти</a>
                     {% else %}
-                    <div class="auth collapse navbar-collapse" id="navbarCollapse">
                         <a class="btn btn-outline-primary" href="{% url 'account_login' %}">Войти</a>
                         <a class="btn btn-outline-success" href="{% url 'account_signup' %}">Зарегистрироваться</a>
-                    </div>
                     {% endif %}
+                    </div>
                 </div>
             </div>
         </nav>

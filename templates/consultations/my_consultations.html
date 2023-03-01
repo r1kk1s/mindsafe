@@ -6,10 +6,16 @@
 {% block content %}
     <h1>Здесь будут отображаться Ваши записи, {{ user }}!</h1>
     <br />
-    <br />
-    {% for cons in consultations %}
-    <h3>{{ cons.consultation }}</h3>
-    <h4>{{ cons.date_time }}</h4>
-    <br />
+    <h3>Вы записаны на:</h3>
+    {% for cons in confirmed_consultations %}
+        <br />
+        <h5>{{ cons.consultation }}{{ cons.date_time }}</h5>
     {% endfor %}
+    <br />
+    <h3>Записи ждут одобрения врача:</h3>
+    {% for cons in non_confirmed_consultations %}
+        <br />
+        <h5>{{ cons.consultation }}{{ cons.date_time }}</h5>
+    {% endfor %}
+
 {% endblock content %}
