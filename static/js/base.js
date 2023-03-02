@@ -5,14 +5,18 @@ aArray.forEach((a) => {
   }
 })
 
-let navbar = document.querySelector('nav')
-function someFunc() {
-  let w = window.innerWidth;
-  if (w < 1100) {
+let navbar = document.querySelector('nav');
+function hideNavbar() {
+  if (window.innerWidth < 1100) {
     navbar.classList.remove("navbar-expand-lg");
   }
-}
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+  hideNavbar();
+});
 
 window.addEventListener('resize', function() {
-  someFunc();
+  hideNavbar();
 });
+
