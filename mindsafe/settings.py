@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "welcome.apps.WelcomeConfig",
     "consultations.apps.ConsultationsConfig",
     "review.apps.ReviewConfig",
+    "articles.apps.ArticlesConfig",
 ]
 
 MIDDLEWARE = [

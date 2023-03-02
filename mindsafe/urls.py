@@ -12,6 +12,7 @@ urlpatterns = [
     path("", include("welcome.urls")),
     path("consultations/", include("consultations.urls")),
     path("review/", include("review.urls")),
+    path("articles/", include("articles.urls")),
 ]
 
 if settings.DEBUG:

@@ -18,7 +18,7 @@ def show_education_page_view(request):
                   {"diplomas": Diplomas.objects.all()})
                   # {"diplomas": get_list_or_404(Diplomas)})
 
-def show_my_contact(request):
+def show_my_contact_view(request):
     """Показывает контакты администратора"""
 
     return render(request, "welcome/contact.html",

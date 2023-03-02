@@ -35,7 +35,14 @@ h1 {
     color: rgb(84, 0, 84);
 }
 
-.my_photo {
+.my-photo {
+    width: 25%;
+    float: left;
+    margin-right: 10px;
+
+}
+
+.article-photo-detail {
     width: 30%;
 }
 
@@ -54,3 +61,16 @@ h1 {
 .navbar-nav .nav-link.active {
     background-color: ghostwhite;
 }
+
+div.article-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap
+}
+
+div.card {
+    width: 20rem;
+}
+
+
+

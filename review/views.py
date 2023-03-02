@@ -5,7 +5,7 @@ from .models import Review
 from .forms import ReviewForm
 
 
-def show_reviews(request):
+def show_reviews_view(request):
     """Веб-сервис, отображающий все отзывы"""
 
     return render(request,
@@ -14,7 +14,7 @@ def show_reviews(request):
 
 
 @login_required
-def add_review(request):
+def add_review_view(request):
     """Веб-сервис, позволяющий добавить отзыв о консультации"""
 
     if request.method == 'POST':

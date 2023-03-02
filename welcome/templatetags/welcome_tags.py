@@ -11,8 +11,9 @@ navbar = [
     {"title": "Образование", "view_name": "education"},
     {"title": "Получить консультацию", "view_name": "consultation_list"},
     {"title": "Мои контакты", "view_name": "contact"},
-    {"title": "Ваши записи", "view_name": "my_consultations"}
-]
+    {"title": "Ваши записи", "view_name": "my_consultations"},
+    {"title": "Статьи", "view_name": "article_list"},
+] 
 
 
 @register.simple_tag
