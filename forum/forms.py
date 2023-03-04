@@ -12,3 +12,12 @@ class IssueForm(forms.ModelForm):
             "title",
             "description",
         )
+
+
+class AnswerForm(forms.ModelForm):
+
+    class Meta:
+        model = Answer
+        fields = (
+            "description",
+        )

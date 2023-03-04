@@ -12,6 +12,7 @@ function hideNavbar() {
   }
 
 };
+
 function showNavbar() {
   if (window.innerWidth > 1150 && !navbar.classList.contains("navbar-expand-lg")) {
     navbar.classList.add("navbar-expand-lg");

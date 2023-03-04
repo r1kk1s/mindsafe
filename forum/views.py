@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Issue
-from .forms import IssueForm
+from .forms import IssueForm, AnswerForm
 
 
 def show_issues_list_view(request):
@@ -27,3 +27,22 @@ def add_issue_view(request):
     return render(request,
                   "forum/add_issue.html",
                   {"form": form})
+
+
+def add_answer_view(request, pk):
+
+    if request.method == "POST":
+        form = AnswerForm(request.POST)
+
+        if form.is_valid:
+            issue = form.save(commit=False)
+            issue.patient = request.user
+            form.save()
+            return redirect("issue_list")
+    
+    form = AnswerForm()
+    
+    return render(request,
+                  "forum/add_answer.html",
+                  {"form": form,
+                   "issue": get_object_or_404(Issue, pk=pk)})
