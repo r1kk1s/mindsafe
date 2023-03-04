@@ -9,9 +9,6 @@ let navbar = document.querySelector('nav');
 function hideNavbar() {
   if (window.innerWidth < 1150) {
     navbar.classList.remove("navbar-expand-lg");
-    aArray.forEach((a) => {
-      a.classList.add("coll");
-    })
   }
 
 };
@@ -30,6 +27,4 @@ window.addEventListener('resize', function() {
   hideNavbar();
 });
 
-// let dateTimeInput = document.querySelector('input.datetimepicker');
-// dateTimeInput.setAttribute("readonly", true)
 
