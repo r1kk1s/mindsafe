@@ -13,6 +13,7 @@ navbar = [
     {"title": "Мои контакты", "view_name": "contact"},
     {"title": "Ваши записи", "view_name": "my_consultations"},
     {"title": "Статьи", "view_name": "article_list"},
+    {"title": "Форум", "view_name": "issue_list"},
 ] 
 
 

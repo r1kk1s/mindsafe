@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, get_list_or_40
 from django.contrib.auth.decorators import login_required
 
 from .models import AvailableConsultation, ConsultationEvent
+from forum.models import Issue
 from .forms import ConsultationEventForm
 
 
@@ -49,4 +50,5 @@ def show_user_consultation_list_view(request):
         {"confirmed_consultations": ConsultationEvent.objects.filter(patient=request.user,
                                                                      approved=True),
         "non_confirmed_consultations": ConsultationEvent.objects.filter(patient=request.user,
-                                                                        approved=False)})
+                                                                        approved=False),
+        "issues": Issue.objects.filter(patient=request.user)})

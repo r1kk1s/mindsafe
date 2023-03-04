@@ -56,6 +56,11 @@ h1 {
 .nav-link {
     margin-top: 5px;
     padding-left: 5px;
+    
+}
+
+.navbar-nav .nav-link {
+    margin-bottom: 5px;
 }
 
 .navbar-nav .nav-link.active {
@@ -69,8 +74,18 @@ div.article-cards {
 }
 
 div.card {
-    width: 20rem;
+    width: 18rem;
 }
 
+div.custom-card-footer {
+    margin: 10px;
+    text-align: center;
+}
 
+div.add-issue > a {
+    margin-left: 20px;
+}
 
+div.add-issue > h4 {
+    float: left;
+}

@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Ваш вопрос{% endblock title %}
+
+{% block content %}
+    <h3>Ваши вопросы и ответы на них будут отображаться во вкладке "Ваши записи", также они будут видны и другим пользователям во вкладке "Форум"</h3>
+    <br />
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.errors }}
+        {{ form|crispy }}
+        <button class="btn btn-success" type="submit">Задать вопрос</button>
+    </form>
+{% endblock content %}

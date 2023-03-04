@@ -31,6 +31,15 @@ ALLOWED_HOSTS = [
     "172.20.10.5",
 ]
 
+# USE ENVIRON VARIABLES
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'myaccount@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Password1234'
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 # Application definition
 
@@ -54,6 +63,7 @@ INSTALLED_APPS = [
     "consultations.apps.ConsultationsConfig",
     "review.apps.ReviewConfig",
     "articles.apps.ArticlesConfig",
+    "forum.apps.ForumConfig",
 ]
 
 MIDDLEWARE = [
@@ -166,6 +176,12 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # нужно �
 LOGIN_REDIRECT_URL = "home"
 ACCOUNT_LOGOUT_REDIRECT = "home"
 ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  Когда установлено «mandatory», пользователь блокируется от входа, пока адрес электронной почты не будет подтвержден.
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 
 # tempus_dominus widget
 TEMPUS_DOMINUS_LOCALIZE = True

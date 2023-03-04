@@ -17,5 +17,19 @@
         <br />
         <h5>{{ cons.consultation }}{{ cons.date_time }}</h5>
     {% endfor %}
-
+    <br />
+    <hr />
+    <h1>Ваши вопросы</h1>
+    {% for issue in issues %}
+        <br />
+        <div>
+            <h4>{{ issue.title }}</h4>
+            <strong>{{ issue.time_updated }}</strong>
+            <p>{{ issue.description }}</p>
+        </div>
+        <div>
+            <h4>Ответ на Ваш вопрос:</h4>
+            <p>{{ issue.answer.description }}</p>
+        </div>
+    {% endfor %}
 {% endblock content %}

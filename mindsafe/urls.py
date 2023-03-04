@@ -3,6 +3,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     # Django admin
     path('admin/', admin.site.urls),
@@ -13,7 +14,9 @@ urlpatterns = [
     path("consultations/", include("consultations.urls")),
     path("review/", include("review.urls")),
     path("articles/", include("articles.urls")),
+    path("forum/", include("forum.urls")),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(
