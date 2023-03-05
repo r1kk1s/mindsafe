@@ -1,4 +1,5 @@
 {% extends "_base.html" %}
+{% load static %}
 
 {% block title %}Все вопросы{% endblock title %}
 
@@ -22,6 +23,11 @@
             </div>
             <div class="card-footer">
                 <h4>Ответ на Ваш вопрос:</h4>
+                {% if issue.answer.description == "" %}
+                <div class="gif">
+                    <img src="{% static 'images/typing-gif.gif' %}" alt="Кот быстро набирает текст на клавиатуре" />
+                </div>
+                {% endif %}
                 <p><strong>{{ issue.answer.time_updated }}</strong></p>
                 <p class="card-text">{{ issue.answer.description }}</p>
             </div>

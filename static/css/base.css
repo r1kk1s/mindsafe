@@ -35,11 +35,21 @@ h1 {
     color: rgb(84, 0, 84);
 }
 
-.my-photo {
-    width: 25%;
-    float: left;
-    margin-right: 10px;
+.welcome {
+    background-color: white;
+    border-radius: 10px;
+    height: 100%;
+    display: flex;
+}
 
+.welcome > p {
+    font-size: 25px;
+    padding: 10px 30px;
+}
+
+.my-photo {
+    width: 45%;
+    border-radius: 10px 0 0 10px;
 }
 
 .article-photo-detail {
@@ -54,9 +64,8 @@ h1 {
 }
 
 .nav-link {
-    margin-top: 5px;
     padding-left: 5px;
-    
+    margin: 5px;
 }
 
 .navbar-nav .nav-link {
@@ -67,25 +76,54 @@ h1 {
     background-color: ghostwhite;
 }
 
-div.article-cards {
+.article-cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap
 }
 
-div.card {
+.card {
     width: 18rem;
 }
 
-div.custom-card-footer {
+.custom-card-footer {
     margin: 10px;
     text-align: center;
 }
 
-div.add-issue > a {
+.add-issue > a {
     margin-left: 20px;
 }
 
-div.add-issue > h4 {
+.add-issue > h4 {
     float: left;
+}
+
+.gif {
+    text-align: center;
+}
+
+.gif > img {
+    width: 12rem;
+}
+
+@media (min-width: 913px) {
+    .content {
+        margin: 0 10%;
+    }
+}
+
+@media (max-width: 750px) {
+    .welcome {
+        display: block;
+    }
+
+    .welcome > img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .welcome > p {
+        font-size: 18px;
+    }
 }

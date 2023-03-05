@@ -7,14 +7,14 @@ aArray.forEach((a) => {
 
 let navbar = document.querySelector('nav');
 function hideNavbar() {
-  if (window.innerWidth < 1150) {
+  if (window.innerWidth < 1116) {
     navbar.classList.remove("navbar-expand-lg");
   }
 
 };
 
 function showNavbar() {
-  if (window.innerWidth > 1150 && !navbar.classList.contains("navbar-expand-lg")) {
+  if (window.innerWidth > 1116 && !navbar.classList.contains("navbar-expand-lg")) {
     navbar.classList.add("navbar-expand-lg");
   }
 };

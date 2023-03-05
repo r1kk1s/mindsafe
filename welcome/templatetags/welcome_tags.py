@@ -7,9 +7,8 @@ register = template.Library()
 
 navbar = [
     {"title": "Главная", "view_name": "home"},
-    {"title": "Отзывы", "view_name": "reviews"},
-    {"title": "Образование", "view_name": "education"},
     {"title": "Получить консультацию", "view_name": "consultation_list"},
+    {"title": "Отзывы", "view_name": "reviews"},
     {"title": "Мои контакты", "view_name": "contact"},
     {"title": "Ваши записи", "view_name": "my_consultations"},
     {"title": "Статьи", "view_name": "article_list"},

@@ -4,7 +4,9 @@
 
 {% block content %}
     <h1>{{ home_info.title }}</h1>
-    <br />
-    <img class="my-photo" src="{{ home_info.photo.url }}" />
-    <p>{{ home_info.description }}</p>
+    <div class="welcome">
+        <img class="my-photo" src="{{ home_info.photo.url }}" />
+        <p>{{ home_info.description }}</p>
+    </div>
+    {% include "welcome/education.html" %}
 {% endblock content%}
