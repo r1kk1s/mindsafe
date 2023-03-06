@@ -1,8 +1,10 @@
-<h1>Мои дипломы или квалификация</h1>
+<h1>Мои дипломы</h1>
 {% for diplom in diplomas %}
-    <div class="diplomas">
-        <h3>{{ diplom.title }}</h3>
-        <img class="diplom" src="{{ diplom.photo.url }}" alt="Фото дипломов" />
-        <p>{{ diplom.description }}</p>
+    <div class="welcome">
+        <img class="my-photo" src="{{ diplom.photo.url }}" alt="Фото дипломов" />
+        <div>
+            <h3>{{ diplom.title }}</h3>
+            <p>{{ diplom.description }}</p>
+        </div>
     </div>
-{% endfor %}
+{% endfor %} 
