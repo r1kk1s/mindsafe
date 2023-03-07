@@ -5,7 +5,7 @@ body {
 }
 
 .navbar {
-    background-color: #ffccf7;
+    background-color: #a28aff;
 }
 
 .auth {
@@ -13,7 +13,7 @@ body {
     
 }
 
-a.btn {
+.btn {
     margin-left: 3px;
     margin-right: 3px;
 }
@@ -32,7 +32,17 @@ a.btn {
 }
 
 h1 {
-    color: rgb(84, 0, 84);
+    color: #3300ff;
+    line-height: 120%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+h3 {
+    color: #633bff;
+    line-height: 110%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .welcome {
@@ -56,10 +66,6 @@ h1 {
 .my-photo {
     width: 45%;
     border-radius: 10px 0 0 10px;
-}
-
-.article-photo-detail {
-    width: 30%;
 }
 
 .input-group-text {
@@ -132,4 +138,72 @@ h1 {
     .welcome p {
         font-size: 18px;
     }
+}
+
+.article {
+    background-color: white;
+    border-radius: 10px;
+    height: 100%;
+    display: block;
+}
+
+.article img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.article h3 {
+    font-size: 40px;
+    text-align: center;
+    padding: 10px 30px;
+}
+
+.article p {
+    font-size: 25px;
+    padding: 10px 30px;
+}
+
+#btn-admin {
+    background-color: ghostwhite;
+    color: black;
+    border-color: rgb(234, 152, 0);
+    border-width: 3px;
+}
+
+#btn-admin:hover {
+    background-color: rgb(234, 152, 0);
+}
+
+.btn-quit {
+    background-color: ghostwhite;
+    color: black;
+    border-width: 3px;
+    border-color: red;
+}
+
+.btn-quit:hover {
+    background-color: red;
+    border-color: red;
+}
+
+.btn-login {
+    background-color: ghostwhite;
+    color: black;
+    border-width: 3px;
+}
+
+.btn-login:hover {
+    background-color: blue;
+    border-color: blue;
+}
+
+.btn-signup {
+    background-color: ghostwhite;
+    color: black;
+    border-width: 3px;
+}
+
+.btn-signup:hover {
+    background-color: green;
+    border-color: green;
 }

@@ -30,15 +30,15 @@
                     </ul>
                     <div class="auth collapse navbar-collapse" id="navbarCollapse"></div>
                     {% if user.is_superuser %}
-                        <a class="btn btn-outline-success" href="/admin/">Админ панель</a>
+                        <a id="btn-admin" class="btn btn-success" href="/admin/">Админ панель</a>
                         <strong id="user">| {{ user.username }} |</strong>
-                        <a class="btn btn-outline-danger" href="{% url 'account_logout' %}">Выйти</a>
+                        <a class="btn btn-danger btn-quit" href="{% url 'account_logout' %}">Выйти</a>
                     {% elif user.is_authenticated %}
                         <strong id="user">{{ user.username }} |</strong>
-                        <a class="btn btn-outline-danger" href="{% url 'account_logout' %}">Выйти</a>
+                        <a class="btn btn-danger btn-quit" href="{% url 'account_logout' %}">Выйти</a>
                     {% else %}
-                        <a class="btn btn-outline-primary" href="{% url 'account_login' %}">Войти</a>
-                        <a class="btn btn-outline-success" href="{% url 'account_signup' %}">Зарегистрироваться</a>
+                        <a class="btn btn-primary btn-login" href="{% url 'account_login' %}">Войти</a>
+                        <a class="btn btn-success btn-signup" href="{% url 'account_signup' %}">Зарегистрироваться</a>
                     {% endif %}
                     </div>
                 </div>

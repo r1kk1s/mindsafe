@@ -45,7 +45,7 @@ class CustomSignupForm(SignupForm):
     def clean_phone(self):
         phone = self.cleaned_data['phone']
         pattern = re.compile(r"^(\+7|8)\d{10}$")
-        if not pattern.match(phone):
+        if not pattern.match(phone) and not phone == '':
             raise ValidationError("Номер телефона должен начинаться с '+7' или с '8' и быть не длиннее 10 цифр.")
         return phone
     
