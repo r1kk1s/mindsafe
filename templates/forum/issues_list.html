@@ -8,17 +8,17 @@
     <br>
     <div class="add-issue">
         <h4>Здесь Вы можете задать свой вопрос!</h4>
-        <a href="{% url 'add_issue' %}" class="btn btn-outline-success">Задать вопрос</a>
+        <a href="{% url 'add_issue' %}" class="btn btn-success btn-signup">Задать вопрос</a>
     </div>
     <div class="cards">
         {% for issue in issues %}
-        <div class="card">
+        <div class="card not-visible">
             <div class="card-body">
                 <h4 class="card-title">{{ issue.title }}</h4>
                 <p><strong>{{ issue.patient }}: {{ issue.time_updated }}</strong></p>
                 <p class="card-text">{{ issue.description }}</p>
             {% if user.is_superuser and issue.answer.description == "" %}
-            <a href="{{ issue.get_absolute_url }}" class="btn btn-primary">Ответить</a>
+            <a href="{{ issue.get_absolute_url }}" class="btn btn-primary btn-login">Ответить</a>
             {% endif %}
             </div>
             <div class="card-footer">

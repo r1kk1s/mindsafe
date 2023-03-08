@@ -4,7 +4,7 @@
 
 {% block content %}
     <h1>Статьи</h1>
-    <div class="article-cards">
+    <div class="article-cards not-visible">
         {% for article in articles %}
         <div class="card">
             <img src="{{ article.photo.url }}" class="card-img-top" alt="...">
@@ -13,7 +13,7 @@
                 <p class="card-text"><small>{{ article.time_updated }}</small></p>
                 <p class="card-text">{{ article.description|truncatechars:130 }}</p>
                 <div class="custom-card-footer">
-                    <a href="{{ article.get_absolute_url }}" class="btn btn-outline-primary">Подробнее</a>
+                    <a href="{{ article.get_absolute_url }}" class="btn btn-primary btn-login">Подробнее</a>
                 </div>
             </div>
         </div>

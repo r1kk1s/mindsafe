@@ -5,6 +5,13 @@ aArray.forEach((a) => {
   }
 })
 
+let aArrayFooter = document.querySelectorAll('a.nav-link.px-2')
+aArray.forEach((a) => {
+  if (a.href == document.location.href) {
+    a.classList.remove("text-muted");
+  }
+})
+
 let navbar = document.querySelector('nav');
 function hideNavbar() {
   if (window.innerWidth < 1116) {
@@ -28,4 +35,19 @@ window.addEventListener('resize', function() {
   hideNavbar();
 });
 
-
+// function onEntry(entry) {
+//   entry.forEach(change => {
+//     if (change.isIntersecting) {
+//       change.target.classList.remove('not-visible');
+//     }
+//   });
+// }
+// let options = { threshold: [0.5] };
+// let observer = new IntersectionObserver(onEntry, options);
+// let elements = document.querySelectorAll('.not-visible');
+// for (let elm of elements) {
+//   observer.observe(elm);
+// }
+// for (let rec of records) {
+//   observer.observe(rec);
+// }

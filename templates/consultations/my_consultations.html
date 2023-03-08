@@ -1,35 +1,44 @@
 {% extends "_base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block title %}Ваши консультации{% endblock title %}
 
 {% block content %}
     <h1>Здесь будут отображаться Ваши записи, {{ user }}!</h1>
-    <br />
-    <h3>Вы записаны на:</h3>
-    {% for cons in confirmed_consultations %}
-        <br />
-        <h5>{{ cons.consultation }}{{ cons.date_time }}</h5>
-    {% endfor %}
-    <br />
-    <h3>Записи ждут одобрения врача:</h3>
-    {% for cons in non_confirmed_consultations %}
-        <br />
-        <h5>{{ cons.consultation }}{{ cons.date_time }}</h5>
-    {% endfor %}
-    <br />
-    <hr />
+    <div class="records not-visible">
+        <div class="non-confirmed">
+            <h3>Записи ждут одобрения врача:</h3>
+            {% for cons in non_confirmed_consultations %}
+                <p><strong>{{ cons.consultation }}: {{ cons.date_time }}</strong></p>
+            {% endfor %}
+        </div>
+        <div class="confirmed">
+            <h3>Вы записаны на:</h3>
+            {% for cons in confirmed_consultations %}
+                <p><strong>{{ cons.consultation }}: {{ cons.date_time }}</strong></p>
+            {% endfor %}
+        </div>
+    </div>
     <h1>Ваши вопросы</h1>
     {% for issue in issues %}
-        <br />
-        <div>
-            <h4>{{ issue.title }}</h4>
-            <strong>{{ issue.time_updated }}</strong>
-            <p>{{ issue.description }}</p>
-        </div>
-        <div>
-            <h4>Ответ на Ваш вопрос:</h4>
-            <p>{{ issue.answer.description }}</p>
+        <div class="records not-visible">
+            <div class="non-confirmed">
+                <h3>{{ issue.title }}</h3>
+                <p><strong>{{ issue.time_updated }}</strong></p>
+                <p>{{ issue.description }}</p>
+            </div>
+            <div class="confirmed">
+                <h3>Ответ на Ваш вопрос:</h3>
+                {% if issue.answer.description == "" %}
+                <div class="gif">
+                    <img src="{% static 'images/typing-gif.gif' %}" alt="Кот быстро набирает текст на клавиатуре" />
+                </div>
+                {% else %}
+                <p><strong>{{ issue.answer.time_updated }}</strong></p>
+                <p>{{ issue.answer.description }}</p>
+                {% endif %}
+            </div>
         </div>
     {% endfor %}
 {% endblock content %}

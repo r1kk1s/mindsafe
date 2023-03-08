@@ -2,10 +2,11 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+{% block head_title %}Подтвердите Ваш E-mail адресс{% endblock %}
 
 {% block content %}
-    <h1>{% trans "Verify Your E-mail Address" %}</h1>
+    <h1>Подтвердите Ваш E-mail адресс</h1>
 
-    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification e-mail in your main inbox, check your spam folder. Please contact us if you do not receive the verification e-mail within a few minutes.{% endblocktrans %}</p>
+    <h4>Мы отправили Вам e-mail для подтверждения. Проследуйте по отправленной ссылке для завершения регистрации. Если вы не видите e-mail для подтверждения в своем почтовом ящике, проверьте папку "спам". Если в течение нескольких минут сообщение Вам не пришло, мы можем отправить его повторно.</h4>
+    <a class="btn btn-primary" href="{% url 'account_email_verification_sent' %}">Отправить повторно</a>
 {% endblock %}

@@ -15,7 +15,7 @@ class Review(models.Model):
         get_user_model(),
         on_delete=models.CASCADE,
     )
-    review = models.CharField(max_length=255, verbose_name="Отзыв")
+    review = models.TextField(verbose_name="Отзыв")
     time_created = models.DateTimeField(auto_now_add=True)
     
     class Meta:

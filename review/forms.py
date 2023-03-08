@@ -15,6 +15,3 @@ class ReviewForm(forms.ModelForm):
             "consultation",
             "review",
         )
-        widgets = {
-            "review": forms.Textarea()
-        }

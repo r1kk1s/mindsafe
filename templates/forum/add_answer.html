@@ -4,13 +4,14 @@
 {% block title %}Ответ{% endblock title %}
 
 {% block content %}
-    <h3>Ответ на {{ issue.title }} </h3>
-    <p>{{ issue.desctiption }}</p>
-    <br />
-    <form method="post" action="">
-        {% csrf_token %}
-        {{ form.errors }}
-        {{ form|crispy }}
-        <button class="btn btn-success" type="submit">Ответить</button>
-    </form>
+    <div class="not-visible">
+        <h3>Ответ на {{ issue.title }} </h3>
+        <p>{{ issue.desctiption }}</p>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.errors }}
+            {{ form|crispy }}
+            <button class="btn btn-success btn-signup" type="submit">Ответить</button>
+        </form>
+    </div>
 {% endblock content %}
