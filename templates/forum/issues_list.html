@@ -5,16 +5,13 @@
 
 {% block content %}
     <h1>Форум</h1>
-    <br>
-    <div class="add-issue">
-        <h4>Здесь Вы можете задать свой вопрос!</h4>
-        <a href="{% url 'add_issue' %}" class="btn btn-success btn-signup">Задать вопрос</a>
-    </div>
+    <h3>Здесь Вы можете задать свой вопрос!</h3>
+    <a href="{% url 'add_issue' %}" class="btn btn-success btn-signup">Задать вопрос</a>
     <div class="cards">
         {% for issue in issues %}
         <div class="card not-visible">
             <div class="card-body">
-                <h4 class="card-title">{{ issue.title }}</h4>
+                <h3 class="card-title">{{ issue.title }}</h3>
                 <p><strong>{{ issue.patient }}: {{ issue.time_updated }}</strong></p>
                 <p class="card-text">{{ issue.description }}</p>
             {% if user.is_superuser and issue.answer.description == "" %}
@@ -22,7 +19,7 @@
             {% endif %}
             </div>
             <div class="card-footer">
-                <h4>Ответ на Ваш вопрос:</h4>
+                <h3>Ответ на Ваш вопрос:</h3>
                 {% if issue.answer.description == "" %}
                 <div class="gif">
                     <img src="{% static 'images/typing-gif.gif' %}" alt="Кот быстро набирает текст на клавиатуре" />

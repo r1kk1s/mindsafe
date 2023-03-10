@@ -41,4 +41,6 @@
             </div>
         </div>
     {% endfor %}
+    <a class="btn btn-success btn-signup" href="{% url 'account_change_password' %}">Сменить пароль</a>
+    <a class="btn btn-success btn-signup" href="{% url 'account_email' %}">Добавить почту</a>
 {% endblock content %}

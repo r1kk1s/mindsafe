@@ -44,6 +44,8 @@ EMAIL_BACKEND = env(
     "DJANGO_EMAIL_BACKEND",
     default="django.core.mail.backends.console.EmailBackend"
 )
+ADMINS = env("DJANGO_ADMINS",
+             default=('Your Name', 'your_email@example.com'))
 
 
 # Application definition
@@ -103,16 +105,9 @@ WSGI_APPLICATION = 'mindsafe.wsgi.application'
 
 
 DATABASES = {
-	"default": {
-		"ENGINE": "django.db.backends.postgresql",
-		"NAME": "postgres",
-		"USER": "postgres",
-		"PASSWORD": "postgres",
-		"HOST": "db",
-		"PORT": 5432,
-	}
+    "default": env.dj_db_url("DATABASE_URL",
+    default="postgres://postgres@db/postgres")
 }
-
 
 
 # Password validation
@@ -177,7 +172,7 @@ AUTHENTICATION_BACKENDS = (
 ACCOUNT_FORMS = {
     'signup': 'accounts.forms.CustomSignupForm',
 }
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "my_consultations"
 ACCOUNT_LOGOUT_REDIRECT = "home"
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_USERNAME_REQUIRED = False
@@ -187,13 +182,13 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "home"
 
 # tempus_dominus widget
 TEMPUS_DOMINUS_LOCALIZE = True 
 TEMPUS_DOMINUS_INCLUDE_ASSETS = True 
 TEMPUS_DOMINUS_DATETIME_FORMAT = '%d/%m/%Y %H:%M'
-
 
 # production config
 SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)

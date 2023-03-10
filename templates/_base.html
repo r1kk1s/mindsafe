@@ -32,10 +32,10 @@
                     {% if user.is_superuser %}
                         <a id="btn-admin" class="btn btn-success" href="/admin/">Админ панель</a>
                         <strong id="user">| {{ user.username }} |</strong>
-                        <a class="btn btn-danger btn-quit" href="{% url 'account_logout' %}">Выйти</a>
+                        <a class="btn btn-danger btn-login" href="{% url 'account_logout' %}">Выйти</a>
                     {% elif user.is_authenticated %}
                         <strong id="user">{{ user.username }} |</strong>
-                        <a class="btn btn-danger btn-quit" href="{% url 'account_logout' %}">Выйти</a>
+                        <a class="btn btn-danger btn-login" href="{% url 'account_logout' %}">Выйти</a>
                     {% else %}
                         <a class="btn btn-primary btn-login" href="{% url 'account_login' %}">Войти</a>
                         <a class="btn btn-success btn-signup" href="{% url 'account_signup' %}">Зарегистрироваться</a>
@@ -57,7 +57,7 @@
                     </li>
                 {% endfor %}
                 </ul>
-                <p class="text-center text-muted">© 2023 safe-your-mind.com, Inc</p>
+                <p class="text-center text-muted">© 2023 safe-your-mind, Inc</p>
             </footer>
         </div>
         <!-- Bootstrap JavaScript -->
