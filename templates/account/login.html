@@ -10,9 +10,9 @@
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.GET.next }}" />
         {{ form|crispy }}
-        <button class="btn btn-success" type="submit">Войти</button>
+        <button class="btn btn-success-custom" type="submit">Войти</button>
         {% if form.errors %}
-        <a class="btn btn-login" href="{% url 'account_reset_password' %}">Забыли пароль</a>
+        <a class="btn btn-danger-custom" href="{% url 'account_reset_password' %}">Забыли пароль</a>
         {% endif %}
     </form>
 {% endblock content %}

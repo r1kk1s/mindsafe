@@ -30,15 +30,15 @@
                     </ul>
                     <div class="auth collapse navbar-collapse" id="navbarCollapse"></div>
                     {% if user.is_superuser %}
-                        <a id="btn-admin" class="btn btn-success" href="/admin/">Админ панель</a>
+                        <a id="btn-admin" class="btn btn-success-custom" href="/admin/">Админ панель</a>
                         <strong id="user">| {{ user.username }} |</strong>
-                        <a class="btn btn-danger btn-login" href="{% url 'account_logout' %}">Выйти</a>
+                        <a class="btn btn-danger-custom" href="{% url 'account_logout' %}">Выйти</a>
                     {% elif user.is_authenticated %}
                         <strong id="user">{{ user.username }} |</strong>
-                        <a class="btn btn-danger btn-login" href="{% url 'account_logout' %}">Выйти</a>
+                        <a class="btn btn-danger-custom" href="{% url 'account_logout' %}">Выйти</a>
                     {% else %}
-                        <a class="btn btn-primary btn-login" href="{% url 'account_login' %}">Войти</a>
-                        <a class="btn btn-success btn-signup" href="{% url 'account_signup' %}">Зарегистрироваться</a>
+                        <a class="btn btn-danger-custom" href="{% url 'account_login' %}">Войти</a>
+                        <a class="btn btn-success-custom" href="{% url 'account_signup' %}">Зарегистрироваться</a>
                     {% endif %}
                     </div>
                 </div>
@@ -57,12 +57,14 @@
                     </li>
                 {% endfor %}
                 </ul>
-                <p class="text-center text-muted">© 2023 safe-your-mind, Inc</p>
+                <p class="text-center text-muted">© 2023 Safe Your Mind, Inc</p>
             </footer>
         </div>
         <!-- Bootstrap JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <!-- JavaScript -->
         <script src="{% static 'js/base.js' %}"></script>
+        {% block extra_body %}
+        {% endblock extra_body %}
     </body>
 </html>

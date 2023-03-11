@@ -10,6 +10,6 @@
     <form method="post" action="{% url 'account_logout' %}">
         {% csrf_token %}
         {{ form|crispy }}
-        <button class="btn btn-danger" type="submit">Выйти</button>
+        <button class="btn btn-danger-custom" type="submit">Выйти</button>
     </form>
 {% endblock content %}

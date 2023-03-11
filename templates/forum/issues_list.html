@@ -6,7 +6,7 @@
 {% block content %}
     <h1>Форум</h1>
     <h3>Здесь Вы можете задать свой вопрос!</h3>
-    <a href="{% url 'add_issue' %}" class="btn btn-success btn-signup">Задать вопрос</a>
+    <a href="{% url 'add_issue' %}" class="btn btn-success-custom">Задать вопрос</a>
     <div class="cards">
         {% for issue in issues %}
         <div class="card not-visible">
@@ -15,7 +15,7 @@
                 <p><strong>{{ issue.patient }}: {{ issue.time_updated }}</strong></p>
                 <p class="card-text">{{ issue.description }}</p>
             {% if user.is_superuser and issue.answer.description == "" %}
-            <a href="{{ issue.get_absolute_url }}" class="btn btn-primary btn-login">Ответить</a>
+            <a href="{{ issue.get_absolute_url }}" id="btn-admin" class="btn btn-success-custom">Ответить</a>
             {% endif %}
             </div>
             <div class="card-footer">
