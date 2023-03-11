@@ -1,0 +1,33 @@
+#header {
+    background-color: rgb(186, 186, 179);
+    color: black;
+}
+
+#branding h1 a:link, #branding h1 a:visited {
+    color: black;
+}
+
+body {
+    background-color: ghostwhite;
+}
+
+.module caption {
+    background-color: rgb(186, 186, 179);
+}
+
+a.section:link, a.section:visited {
+    color: black;
+}
+
+a.section:link:hover, a.section:visited:hover {
+    color: rgb(54, 0, 46);
+    font-weight: bold;
+}
+
+div.breadcrumbs {
+    background-color: rgb(155, 155, 148);
+}
+
+#changelist-filter h2 {
+    background-color: rgb(155, 155, 148);
+}

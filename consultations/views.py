@@ -47,8 +47,10 @@ def show_user_consultation_list_view(request):
     return render(
         request,
         "consultations/my_consultations.html",
-        {"confirmed_consultations": ConsultationEvent.objects.filter(patient=request.user,
-                                                                     approved=True),
-        "non_confirmed_consultations": ConsultationEvent.objects.filter(patient=request.user,
-                                                                        approved=False),
-        "issues": Issue.objects.filter(patient=request.user)})
+        {"confirmed_consultations": ConsultationEvent.objects.filter(
+                patient=request.user, approved=True
+            ).select_related("consultation"),
+        "non_confirmed_consultations": ConsultationEvent.objects.filter(
+                patient=request.user, approved=False
+            ).select_related("consultation"),
+        "issues": Issue.objects.filter(patient=request.user).select_related("patient", "answer")})

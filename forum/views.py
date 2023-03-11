@@ -7,7 +7,7 @@ from .forms import IssueForm, AnswerForm
 def show_issues_list_view(request):
     return render(request,
                   "forum/issues_list.html",
-                  {"issues": Issue.objects.all()})
+                  {"issues": Issue.objects.all().select_related("patient", "answer")})
 
 
 def add_issue_view(request):

@@ -40,6 +40,10 @@ class CustomSignupForm(SignupForm):
 
     class Meta:
         model = get_user_model()
+        fields = (
+            "email",
+            "phone",
+        )
 
 
     def clean_phone(self):
@@ -48,9 +52,9 @@ class CustomSignupForm(SignupForm):
         if not pattern.match(phone) and not phone == '':
             raise ValidationError("Номер телефона должен начинаться с '+7' или с '8' и быть не длиннее 10 цифр.")
         return phone
-    
 
-    def save(self, request):
+
+    def signup(self, request):
         """
         В документации django-allauth при добавлении в форму пользовательских полей
         необходимо явно присваивать этим полям значение

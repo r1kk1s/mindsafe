@@ -8,3 +8,4 @@ crispy-bootstrap5==0.7
 django-crispy-forms==2.0
 django-tempus-dominus==5.1.2.17
 environs[django]==9.5.0
+django_debug_toolbar==3.8.1
