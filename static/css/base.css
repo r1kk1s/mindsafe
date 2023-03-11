@@ -134,9 +134,11 @@ h3 {
 }
 
 @media (min-width: 769px) {
+
     .content {
         margin: 0 10%;
     }
+
 }
 
 @media (max-width: 769px) {
@@ -155,6 +157,13 @@ h3 {
 
     .card {
         margin: 3% 3% 3% 0;
+    }
+}
+
+@media (max-width: 321px) {
+
+    body {
+        padding: 5rem 0 0 0;
     }
 }
 
@@ -274,4 +283,20 @@ form {
 
 .email-describe {
     margin-left: 3%;
+}
+
+#brand-ico {
+    width: 35px;
+    border-radius: 100%;
+    margin: 0 10px 5px 0;
+}
+
+
+.navbar-brand {
+    border: white;
+}
+
+.navbar-brand:hover {
+    border-color: ghostwhite;
+    border-width: 3px;
 }

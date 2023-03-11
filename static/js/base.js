@@ -14,17 +14,30 @@ aArray.forEach((a) => {
 
 let navbar = document.querySelector('nav');
 function hideNavbar() {
-  if (window.innerWidth < 1116) {
+  if (window.innerWidth < 1250) {
     navbar.classList.remove("navbar-expand-lg");
   }
 
 };
-
 function showNavbar() {
-  if (window.innerWidth > 1116 && !navbar.classList.contains("navbar-expand-lg")) {
+  if (window.innerWidth > 1250 && !navbar.classList.contains("navbar-expand-lg")) {
     navbar.classList.add("navbar-expand-lg");
   }
 };
+
+let auth = document.querySelector('.auth')
+function hideAuth() {
+  if (window.innerWidth < 710) {
+    auth.classList.add("collapse", "navbar-collapse");
+    auth.setAttribute("id", "navbarCollapse");
+  }
+}
+function showAuth() {
+  if (window.innerWidth > 710) {
+    auth.classList.remove("collapse", "navbar-collapse");
+    auth.removeAttribute("id");
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   hideNavbar();
@@ -32,22 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('resize', function() {
   showNavbar();
+  showAuth();
   hideNavbar();
+  hideAuth();
 });
 
-// function onEntry(entry) {
-//   entry.forEach(change => {
-//     if (change.isIntersecting) {
-//       change.target.classList.remove('not-visible');
-//     }
-//   });
-// }
-// let options = { threshold: [0.5] };
-// let observer = new IntersectionObserver(onEntry, options);
-// let elements = document.querySelectorAll('.not-visible');
-// for (let elm of elements) {
-//   observer.observe(elm);
-// }
-// for (let rec of records) {
-//   observer.observe(rec);
-// }
+

@@ -1,8 +1,36 @@
 {% extends "_base.html" %}
+{% load static %}
 
 {% block title %}Контакты{% endblock title %}
 
+{% block extrahead %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/social.css' %}" />
+{% endblock extrahead %}
+
 {% block content %}
     <h1>Связаться со мной</h1>
-    <h4>Мой номер телефона: {{ superuser.phone }}</h4>
+    <div class="social-block">
+        <div class="social">
+            <h3>Мой номер телефона: </h3>
+            <h3 id="phone-number">{{ superuser.phone }}</h3>
+        </div>
+        <div class="social whatsapp">
+            <h3>Мой WhatsApp: </h3>
+            <a href="#" target="_blank"><i class="fa fa-whatsapp fa-2x"></i></a>
+        </div>
+        <div class="social skype">
+            <h3>Мой Skype: </h3>
+            <a href="#" target="_blank"><i class="fa fa-skype fa-2x"></i></a>
+        </div>
+        <div class="social vk">
+            <h3>Мой ВКонтакте: </h3>
+            <a href="#" target="_blank"><i class="fa fa-vk fa-2x"></i></a>    
+        </div>
+        <div class="social telegram">
+            <h3>Мой Telegram: </h3>
+            <a href="#" target="_blank"><i class="fa fa-paper-plane fa-2x"></i></a>
+        </div>
+    </div>
+    
 {% endblock content%}
