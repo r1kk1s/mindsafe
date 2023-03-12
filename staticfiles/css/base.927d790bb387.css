@@ -1,0 +1,310 @@
+body {
+    padding: 1rem;
+    padding-top: 5rem;
+    background-color: ghostwhite;
+}
+
+.navbar {
+    background-color: rgb(186, 186, 179);
+}
+
+.auth {
+    flex-grow: unset;
+    
+}
+
+.btn {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#user {
+    font-size: large;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 5% 5% 5% 0;
+    width: 20rem;
+}
+
+.card h3 {
+    font-size: 26px;
+    margin-bottom: 5%;
+}
+
+h1 {
+    color: rgb(66, 72, 65);
+    line-height: 120%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-family: Forum,cursive;
+}
+
+h3 {
+    color: rgb(89, 101, 88);
+    line-height: 110%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-family: Forum,cursive;
+}
+
+.welcome {
+    background-color: white;
+    border-radius: 10px;
+    height: 100%;
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.welcome h3 {
+    padding: 10px 30px;
+    color: black;
+    font-size: 30px;
+    font-family: Forum,cursive;
+}
+
+.welcome p {
+    font-size: 24px;
+    padding: 10px 30px;
+    color: rgb(65, 74, 64);
+    font-family: Forum,cursive;
+}
+
+.my-photo {
+    width: 45%;
+    border-radius: 10px 0 0 10px;
+}
+
+.input-group-text {
+    padding: 0.7rem 1.5rem;
+    font-size: 1.3rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.nav-link {
+    padding-left: 5px;
+    margin: 5px;
+}
+
+.navbar-nav .nav-link {
+    margin-bottom: 5px;
+}
+
+.navbar-nav .nav-link.active {
+    background-color: ghostwhite;
+}
+
+.article-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap
+}
+
+.custom-card-footer {
+    margin: 10px;
+    text-align: center;
+}
+
+.add-issue a {
+    margin-left: 20px;
+}
+
+.add-issue h4 {
+    float: left;
+}
+
+.gif {
+    text-align: center;
+}
+
+.gif img {
+    width: 12rem;
+    border-radius: 10px;
+}
+
+.confirmed img {
+    margin: 3%;
+}
+
+@media (min-width: 769px) {
+
+    .content {
+        margin: 0 10%;
+    }
+
+}
+
+@media (max-width: 769px) {
+    .welcome {
+        display: block;
+    }
+
+    .welcome img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .welcome p {
+        font-size: 18px;
+    }
+
+    .card {
+        margin: 3% 3% 3% 0;
+    }
+}
+
+@media (max-width: 321px) {
+
+    body {
+        padding: 5rem 0 0 0;
+    }
+}
+
+.article {
+    background-color: white;
+    border-radius: 10px;
+    height: 100%;
+    display: block;
+}
+
+.article img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.article h3 {
+    font-size: 40px;
+    text-align: center;
+    padding: 10px 30px;
+}
+
+.article p {
+    font-size: 25px;
+    padding: 10px 30px;
+}
+
+#btn-admin {
+    background-color: ghostwhite;
+    color: rgb(98, 0, 47);
+    border-color: rgb(98, 0, 47);
+    border-width: 3px;
+}
+
+#btn-admin:hover {
+    background-color: rgb(98, 0, 47);
+    color: white;
+}
+
+.btn-danger-custom {
+    background-color: ghostwhite;
+    color: orange;
+    border-color: orange;
+    border-width: 3px;
+}
+
+.btn-danger-custom:hover {
+    background-color: orange;
+    border-color: orange;
+    color: white;
+}
+
+.btn-success-custom {
+    background-color: ghostwhite;
+    color: green;
+    border-width: 3px;
+    border-color: green;
+}
+
+.btn-success-custom:hover {
+    background-color: green;
+    color: white;
+    border-color: green;
+}
+
+.records {
+    background-color: white;
+    border-radius: 10px;
+    height: 100%;
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.confirmed {
+    background-color: rgb(234, 255, 234);
+    border-radius: 0 10px 10px 0;
+    width: 50%;
+}
+
+.non-confirmed {
+    width: 50%;
+}
+
+.records p {
+    padding: 10px 30px;
+}
+
+.records h3 {
+    padding: 10px 30px;
+}
+
+.not-visible {
+    transform: translateX(-150%);
+    animation: ani 1.5s forwards;
+}
+  
+@keyframes ani {
+    0% {transform: translateX(-150%);}
+    100% {transform: translateX(0);}
+}
+
+form {
+    margin-bottom: 3%;
+}
+
+.buttonHolder {
+    margin-top: 3%;
+}
+
+.email-list {
+    display: flex;
+}
+
+.email-list strong {
+    margin-left: 1%;
+}
+
+.email-describe {
+    margin-left: 3%;
+}
+
+#brand-ico {
+    width: 35px;
+    border-radius: 100%;
+    margin: 0 10px 5px 0;
+}
+
+
+.navbar-brand {
+    border: white;
+}
+
+.navbar-brand:hover {
+    border-color: ghostwhite;
+    border-width: 3px;
+}
+
+#account-management {
+    margin-top: 5%;
+}
+
+#account-management a {
+    margin: 0 1% 1% 0;
+}

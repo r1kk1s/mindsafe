@@ -30,6 +30,7 @@ DEBUG = env.bool("DJANGO_DEBUG", default=False)
 ALLOWED_HOSTS = [
     '127.0.0.1',
     '192.168.0.15',
+    "192.168.91.95",
 ]
 
 # e-mail definition
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     "django.contrib.sites",
     # Third-party
@@ -76,6 +78,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,6 +87,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 ROOT_URLCONF = 'mindsafe.urls'
 
