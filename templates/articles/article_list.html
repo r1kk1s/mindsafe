@@ -4,6 +4,9 @@
 
 {% block content %}
     <h1>Статьи</h1>
+    {% if user.is_superuser %}
+        <a id="btn-admin" class="btn btn-success-custom" href="{% url 'add_article' %}">Добавить статью</a>
+    {% endif %}
     <div class="article-cards not-visible">
         {% for article in articles %}
         <div class="card">

@@ -28,7 +28,6 @@ class Issue(models.Model):
 class Answer(models.Model):
     issue = models.OneToOneField(Issue,
                                  on_delete=models.CASCADE,
-                                 to_field="title",
                                  null=True,
                                  blank=True)
     description = models.TextField(verbose_name="Ответ")
@@ -42,4 +41,4 @@ class Answer(models.Model):
         ordering = ["time_created",]
     
     def __str__(self):
-        return str(self.issue)
+        return self.issue.title

@@ -20,27 +20,32 @@
             {% endfor %}
         </div>
     </div>
-    <h1>Ваши вопросы</h1>
-    {% for issue in issues %}
-        <div class="records not-visible">
-            <div class="non-confirmed">
-                <h3>{{ issue.title }}</h3>
-                <p><strong>{{ issue.time_updated }}</strong></p>
-                <p>{{ issue.description }}</p>
-            </div>
-            <div class="confirmed">
-                <h3>Ответ на Ваш вопрос:</h3>
-                {% if issue.answer.description == "" %}
-                <div class="gif">
-                    <img src="{% static 'images/typing-gif.gif' %}" alt="Кот быстро набирает текст на клавиатуре" />
+    {% if issues %}
+        <h1>Ваши вопросы</h1>
+        {% for issue in issues %}
+            <div class="records not-visible">
+                <div class="non-confirmed">
+                    <h3>{{ issue.title }}</h3>
+                    <p><strong>{{ issue.time_updated }}</strong></p>
+                    <p>{{ issue.description }}</p>
                 </div>
-                {% else %}
-                <p><strong>{{ issue.answer.time_updated }}</strong></p>
-                <p>{{ issue.answer.description }}</p>
-                {% endif %}
+                <div class="confirmed">
+                    <h3>Ответ на Ваш вопрос:</h3>
+                    {% if issue.answer.description == "" %}
+                    <div class="gif">
+                        <img src="{% static 'images/typing-gif.gif' %}" alt="Кот быстро набирает текст на клавиатуре" />
+                    </div>
+                    {% else %}
+                    <p><strong>{{ issue.answer.time_updated }}</strong></p>
+                    <p>{{ issue.answer.description }}</p>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-    {% endfor %}
-    <a class="btn btn-success-custom" href="{% url 'account_change_password' %}">Сменить пароль</a>
+        {% endfor %}
+    {% endif %}
+    <div id="account-management">
+        <a class="btn btn-success-custom" href="{% url 'account_change_password' %}">Сменить пароль</a>
     <a class="btn btn-success-custom" href="{% url 'account_email' %}">Добавить почту</a>
+    </div>
+    
 {% endblock content %}

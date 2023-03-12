@@ -17,7 +17,7 @@ def show_available_consultation_list_view(request):
 def show_consultation_detail_view(request, pk):
     """Веб-сервис, записывающий текущего пользователя на выбранную консультацию"""
     
-    selected_consultation = get_object_or_404(AvailableConsultation, id=pk)
+    selected_consultation = get_object_or_404(AvailableConsultation, pk=pk)
 
     if request.method == 'POST':
         form = ConsultationEventForm(request.POST)

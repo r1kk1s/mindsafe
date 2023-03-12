@@ -17,7 +17,7 @@ class WelcomeAdmin(admin.ModelAdmin):
     ]
     list_editable = ["displayed"]
 
-    fields = ('title', 'description', 'photo', 'get_html_photo')
+    fields = ('title', 'description', 'photo', 'get_html_photo', "displayed")
     readonly_fields = ('get_html_photo',)
 
     def get_html_photo(self, object):

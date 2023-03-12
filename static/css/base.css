@@ -300,3 +300,11 @@ form {
     border-color: ghostwhite;
     border-width: 3px;
 }
+
+#account-management {
+    margin-top: 5%;
+}
+
+#account-management a {
+    margin: 0 1% 1% 0;
+}

@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth import get_user_model
 
 
 class Articles(models.Model):
@@ -27,3 +27,27 @@ class Articles(models.Model):
     
     def get_absolute_url(self):
         return reverse("article_detail", kwargs={"pk":str(self.id)})
+
+
+class ArticlesReview(models.Model):
+    article = models.ForeignKey(
+        Articles,
+        on_delete=models.CASCADE,
+        related_name="article",
+        verbose_name="Статья",
+    )
+    patient = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+    review = models.TextField(verbose_name="Комментарий")
+    time_created = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        db_table = "article_reviews"
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
+        ordering = ["time_created"]
+
+    def __str__(self):
+        return self.article.title

@@ -1,10 +1,12 @@
-<h1>Мои дипломы</h1>
-{% for diplom in diplomas %}
-    <div class="welcome not-visible">
-        <img class="my-photo" src="{{ diplom.photo.url }}" alt="Фото дипломов" />
-        <div>
-            <h3>{{ diplom.title }}</h3>
-            <p>{{ diplom.description }}</p>
+{% if diplomas %}
+    <h1>Мои дипломы</h1>
+    {% for diplom in diplomas %}
+        <div class="welcome not-visible">
+            <img class="my-photo" src="{{ diplom.photo.url }}" alt="Фото дипломов" />
+            <div>
+                <h3>{{ diplom.title }}</h3>
+                <p>{{ diplom.description }}</p>
+            </div>
         </div>
-    </div>
-{% endfor %} 
+    {% endfor %}
+{% endif %}

@@ -25,5 +25,5 @@ class Review(models.Model):
         ordering = ["time_created"]
 
     def __str__(self):
-        return self.review
+        return self.consultation.title
     
