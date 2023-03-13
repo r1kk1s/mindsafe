@@ -9,8 +9,10 @@ from .forms import ConsultationEventForm
 def show_available_consultation_list_view(request):
     """Веб-сервис, отображающий доступные консультации"""
 
-    return render(request, "consultations/consultation_list.html",
-                  {"consultation_cards": get_list_or_404(AvailableConsultation)})
+    return render(request, "consultations/consultation_list.html", {
+        "consultation_cards": enumerate(AvailableConsultation.objects.all()),
+    })
+                  
 
 
 @login_required

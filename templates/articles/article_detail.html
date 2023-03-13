@@ -4,14 +4,14 @@
 {% block title %}{{ article.title }}{% endblock title %}
 
 {% block content %}
-    <div class="article not-visible">
+    <div class="article displaying">
         <img src="{{ article.photo.url }}" alt="...">
         <h3>{{ article.title }}</h3>
         <p>{{ article.description|linebreaks }}</p>
     </div>
     <div class="cards">
         {% for review in reviews %}
-        <div class="card not-visible">
+        <div class="card displaying-from-left">
             <div class="card-body">
                 <h3 class="card-title">{{ review.patient }}: {{ review.time_created }}</h3>
                 <p class="card-text">{{ review.review }}</p>

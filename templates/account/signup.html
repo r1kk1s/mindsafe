@@ -5,11 +5,14 @@
 
 {% block content %}
     <h1>Регистрация</h1>
-    <br />
     <p><strong>Обязательные поля отмечены знаком "*"</strong></p>
     <form method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
-        {{ form|crispy }}
-        <button class="btn btn-success-custom" type="submit">Зарегистрироваться</button>
+        <div class="displaying">
+            {{ form|crispy }}
+        </div>
+        <div class="displaying-from-left">
+            <button class="btn btn-success-custom" type="submit">Зарегистрироваться</button>
+        </div>
     </form>
 {% endblock content %}

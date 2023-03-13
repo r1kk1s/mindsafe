@@ -10,7 +10,7 @@ def show_reviews_view(request):
 
     return render(request,
                   "review/review_list.html",
-                  {"reviews": Review.objects.all().select_related("consultation", "patient")})
+                  {"reviews": enumerate(Review.objects.all().select_related("consultation", "patient"))})
 
 
 @login_required

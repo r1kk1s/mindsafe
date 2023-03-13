@@ -6,17 +6,22 @@
     <h1>Отзывы</h1>
     <div>
         <h3>Добавьте свой отзыв</h3>
-        <a class="btn btn-success-custom" href="{% url 'add_review' %}">Написать отзыв</a>
+        <div class="displaying-from-left">
+            <a class="btn btn-success-custom" href="{% url 'add_review' %}">Написать отзыв</a>
+        </div>
     </div>
-    {% for review in reviews %}
-        <hr>
-        <div class="review not-visible">
-            <div class="review-title" >
-                <h4>{{ review.consultation }}</h4>
-                <strong>{{ review.patient }}</strong>
-                <h6>{{ review.time_created }}</h6>
+    <div class="cards">
+    {% for number, review in reviews %}
+        <div class="card displaying-from-bottom-{{ number }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ review.consultation }}</h5>
+                <h6 class="card-title">{{ review.patient }}</h6>
+                <p class="card-text">{{ review.review }}</p>
             </div>
-            <p>{{ review.review }}</p>
+            <div class="custom-card-footer">
+                <small class="text-muted">{{ review.time_created }}</small>
+            </div>
         </div>
     {% endfor %}
+    </div>
 {% endblock content%}

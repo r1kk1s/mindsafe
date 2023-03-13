@@ -6,7 +6,7 @@
 
 {% block content %}
     <h1>Здесь будут отображаться Ваши записи, {{ user }}!</h1>
-    <div class="records not-visible">
+    <div class="records displaying-from-left">
         <div class="non-confirmed">
             <h3>Записи ждут одобрения врача:</h3>
             {% for cons in non_confirmed_consultations %}
@@ -23,7 +23,7 @@
     {% if issues %}
         <h1>Ваши вопросы</h1>
         {% for issue in issues %}
-            <div class="records not-visible">
+            <div class="records displaying-from-right">
                 <div class="non-confirmed">
                     <h3>{{ issue.title }}</h3>
                     <p><strong>{{ issue.time_updated }}</strong></p>
@@ -44,8 +44,7 @@
         {% endfor %}
     {% endif %}
     <div id="account-management">
-        <a class="btn btn-success-custom" href="{% url 'account_change_password' %}">Сменить пароль</a>
-    <a class="btn btn-success-custom" href="{% url 'account_email' %}">Добавить почту</a>
+        <a class="btn btn-success-custom displaying-from-bottom-0" href="{% url 'account_change_password' %}">Сменить пароль</a>
+        <a class="btn btn-success-custom displaying-from-bottom-1" href="{% url 'account_email' %}">Добавить почту</a>
     </div>
-    
 {% endblock content %}

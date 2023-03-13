@@ -2,8 +2,8 @@ from django import template
 
 from consultations.models import ConsultationEvent
 
-register = template.Library()
 
+register = template.Library()
 
 navbar = [
     {"title": "Главная", "view_name": "home"},
@@ -13,15 +13,14 @@ navbar = [
     {"title": "Ваши записи", "view_name": "my_consultations"},
     {"title": "Статьи", "view_name": "article_list"},
     {"title": "FAQ", "view_name": "issue_list"},
-] 
-
+]
 
 @register.simple_tag
 def show_navbar_links():
     return navbar
 
 
-def get_booked_dates():
+def get_booked_dates() -> str:
     """Возвращает забронированные даты из БД в строковом формате"""
     dates = []
     for date in ConsultationEvent.objects.values("date_time"):

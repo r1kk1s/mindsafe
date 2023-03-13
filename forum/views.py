@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from .models import Issue
 from .forms import IssueForm, AnswerForm
@@ -9,7 +10,7 @@ def show_issues_list_view(request):
                   "forum/issues_list.html",
                   {"issues": Issue.objects.all().select_related("patient", "answer")})
 
-
+@login_required
 def add_issue_view(request):
     "Веб-сервис, записывающий проблему пациента в БД"
     

@@ -4,9 +4,9 @@
 
 {% block content %}
     <h1>Услуги</h1>
-    <div class="cards not-visible">
-        {% for card in consultation_cards %}
-        <div class="card">
+    <div class="cards">
+        {% for number, card in consultation_cards %}
+            <div class="card displaying-from-bottom-{{ number }}">
             {% if card.photo %}
             <img src="{{ card.photo.url }}" class="card-img-top" alt="...">
             {% endif %}
@@ -14,7 +14,7 @@
                 <h5 class="card-title">{{ card.title }}</h5>
                 <p class="card-text">{{ card.description|truncatechars:150 }}</p>
             </div>
-            <div class="custom-card-footer">
+            <div id="consultation-card" class="custom-card-footer">
                 <a href="{{ card.get_absolute_url }}" class="btn btn-success-custom">Записаться на приём</a>
             </div>
         </div>

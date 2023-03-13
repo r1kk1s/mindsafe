@@ -4,13 +4,14 @@
 {% block title %}Добавить отзыв{% endblock title %}
 
 {% block content %}
-    <div class="not-visible">
-        <h1>Добавить отзыв</h1>
-        <form method="post" action="">
-            {% csrf_token %}
+    <h1>Добавить отзыв</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="displaying">
             {{ form|crispy }}
+        </div>
+        <div class="displaying-from-left">
             <button class="btn btn-success-custom" type="submit">Оставить отзыв</button>
-        </form>
-    </div>
-    
+        </div>
+    </form>
 {% endblock content%}
