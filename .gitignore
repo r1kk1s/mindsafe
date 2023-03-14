@@ -2,3 +2,4 @@
 __pycache__/
 .dockerignore
 docker-compose-prod.yml
+.env

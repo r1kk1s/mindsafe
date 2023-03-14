@@ -1,0 +1,125 @@
+.displaying-from-left {
+    transform: translateX(-150%);
+    animation: _left 1.2s forwards;
+}
+  
+@keyframes _left {
+    0% {
+        transform: translateX(-150%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.displaying-from-left-diff-0 {
+    transform: translateX(-150%);
+    animation: left_diff 1s forwards;
+}
+.displaying-from-left-diff-1 {
+    transform: translateX(-150%);
+    animation: left_diff 1.2s forwards;
+}
+.displaying-from-left-diff-2 {
+    transform: translateX(-150%);
+    animation: left_diff 1.4s forwards;
+}
+.displaying-from-left-diff-3 {
+    transform: translateX(-150%);
+    animation: left_diff 1.6s forwards;
+}
+.displaying-from-left-diff-4 {
+    transform: translateX(-150%);
+    animation: left_diff 1.8s forwards;
+}
+
+@keyframes left_diff {
+    0% {
+        transform: translateX(-150%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.displaying-from-right {
+    transform: translateX(150%);
+    animation: _right 1.5s forwards;
+}
+  
+@keyframes _right {
+    0% {
+        transform: translateX(150%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.displaying-from-top {
+    transform: translateY(-150%);
+    animation: _top 1s forwards;
+}
+
+@keyframes _top {
+    0% {
+        transform: translateY(-150%);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.displaying-from-bottom-0 {
+    transform: translateY(500%);
+    animation: _bottom 1s forwards;
+}
+
+
+.displaying-from-bottom-1 {
+    transform: translateY(500%);
+    animation: _bottom 1.2s forwards;
+}
+
+.displaying-from-bottom-2 {
+    transform: translateY(500%);
+    animation: _bottom 1.4s forwards;
+}
+
+.displaying-from-bottom-3 {
+    transform: translateY(500%);
+    animation: _bottom 1.6s forwards;
+}
+
+@keyframes _bottom {
+    0% {
+        transform: translateY(500%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.displaying {
+    animation: disp 2s forwards;
+}
+
+@keyframes disp {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
