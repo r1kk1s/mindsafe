@@ -7,6 +7,7 @@ ENV PYTHONUNBUFFERED 1
 ENV APP_HOME=/home/app/web
 RUN mkdir -p $APP_HOME
 RUN mkdir $APP_HOME/staticfiles
+RUN mkdir $APP_HOME/mediafiles
 WORKDIR $APP_HOME
 
 COPY ./requirements.txt .

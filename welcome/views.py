@@ -8,7 +8,7 @@ def show_welcome_page_view(request):
     """Показывает страницу приветствия"""
     
     return render(request, "welcome/home.html",
-                  {"home_info": Welcome.objects.filter(displayed=True),
+                  {"home_info": Welcome.objects.filter(displayed=True)[0],
                    "diplomas": Diplomas.objects.all()})
 
 def show_my_contact_view(request):
