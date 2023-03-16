@@ -5,7 +5,7 @@
 
 {% block content %}
     <h1>Добавить отзыв</h1>
-    <form method="post" action="">
+    <form method="post" action="{% url 'add_review' %}">
         {% csrf_token %}
         <div class="displaying">
             {{ form|crispy }}

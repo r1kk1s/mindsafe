@@ -211,7 +211,7 @@ SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=0)
 SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=False)
 SESSION_COOKIE_SECURE = env.bool("DJANGO_SESSION_COOKIE_SECURE", default=True)
 CSRF_COOKIE_SECURE = env.bool("DJANGO_CSRF_COOKIE_SECURE", default=True)
-CSRF_TRUSTED_ORIGINS = ['https://safe-your-mind.space']
+CSRF_TRUSTED_ORIGINS = ['https://safe-your-mind.space', 'http://127.0.0.1:1337']
 
 
 # django-debug-toolbar 

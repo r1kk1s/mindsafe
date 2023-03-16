@@ -4,7 +4,7 @@
 {% block title %}Добавить статью{% endblock title %}
 
 {% block content %}
-    <form class="displaying" method="post" enctype="multipart/form-data" action="">
+    <form class="displaying" method="post" enctype="multipart/form-data" action="{% url 'add_article' %}">
         {% csrf_token %}
         {{ form.errors }}
         {{ form|crispy }}

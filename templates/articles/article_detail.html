@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="article displaying">
-        <img src="{{ article.photo.url }}" alt="...">
+        <img src="{{ article.photo.url }}" alt="фото статьи">
         <h3>{{ article.title }}</h3>
         <p>{{ article.description|linebreaks }}</p>
     </div>
@@ -20,7 +20,7 @@
         {% endfor %}
     </div>
     <div>
-        <form method="post" action="">
+        <form method="post" action="{% url 'article_detail' %}">
             {% csrf_token %}
             {{ form|crispy }}
             <button class="btn btn-success-custom" type="submit">Оставить комментарий</button>

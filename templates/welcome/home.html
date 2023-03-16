@@ -5,7 +5,7 @@
 {% block content %}
     <h1>{{ home_info.title }}</h1>
     <div class="welcome displaying">
-        <img class="my-photo" src="{{ home_info.photo.url }}" />
+        <img class="my-photo" src="{{ home_info.photo.url }}" alt="Мое фото" />
         <p>{{ home_info.description }}</p>
     </div>
     {% include "welcome/education.html" %}

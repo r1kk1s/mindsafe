@@ -5,7 +5,7 @@
 
 {% block content %}
         <h3>Ваши вопросы и ответы на них будут отображаться во вкладке "Ваши записи", также они будут видны и другим пользователям во вкладке "Форум"</h3>
-        <form method="post" action="">
+        <form method="post" action="{% url 'add_issue' %}">
             {% csrf_token %}
             {{ form.errors }}
             <div class="displaying">

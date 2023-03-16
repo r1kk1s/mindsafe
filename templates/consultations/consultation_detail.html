@@ -12,7 +12,7 @@
 {% block content %}
     <h1>{{ consultation.title }}</h1>
     <h4>{{ consultation.description }}</h4>
-    <form method="post" action="">
+    <form method="post" action="{% url 'consultation_detail' %}">
         {% csrf_token %}
         {{ form.errors }}
         <div class="displaying">
