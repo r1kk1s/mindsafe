@@ -3,10 +3,14 @@ from django.contrib.auth import get_user_model
 
 from .models import Welcome, Diplomas
 
+from django.core.mail import send_mail
+
+
+
 
 def show_welcome_page_view(request):
     """Показывает страницу приветствия"""
-    
+
     return render(request, "welcome/home.html",
                   {"home_info": Welcome.objects.filter(displayed=True)[0],
                    "diplomas": Diplomas.objects.all()})

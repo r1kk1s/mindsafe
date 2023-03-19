@@ -28,8 +28,9 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 ALLOWED_HOSTS = [
-    "safe-your-mind.space",
-    "217.18.60.84",
+    '217.18.60.84',
+    'safe-your-mind.space',
+    'www.safe-your-mind.space',
     '127.0.0.1',
 ]
 
@@ -38,7 +39,7 @@ EMAIL_HOST = env("DJANGO_EMAIL_HOST", default="localhost")
 EMAIL_PORT = env("DJANGO_EMAIL_PORT", default='25')
 EMAIL_HOST_USER = env("DJANGO_EMAIL_HOST_USER", default='')
 EMAIL_HOST_PASSWORD = env("DJANGO_EMAIL_HOST_PASSWORD", default='')
-EMAIL_USE_TLS = env("DJANGO_EMAIL_USE_TLS", default=True)
+EMAIL_USE_TLS = env("DJANGO_EMAIL_USE_TLS", default=False)
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_BACKEND = env(
@@ -46,6 +47,11 @@ EMAIL_BACKEND = env(
     default="django.core.mail.backends.console.EmailBackend"
 )
 
+ADMINS = (
+    ("Robert", "robert2217@icloud.com"),
+    ("robert", "rkazaryan00@mail.ru"),
+)
+MANAGERS = ADMINS
 
 # Application definition
 
@@ -59,9 +65,9 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     # Third-party
     "crispy_forms",
-	"crispy_bootstrap5",
-	"allauth",
-	"allauth.account",
+    "crispy_bootstrap5",
+    "allauth",
+    "allauth.account",
     "tempus_dominus",
     "debug_toolbar",
     # Local
@@ -108,11 +114,6 @@ WSGI_APPLICATION = 'mindsafe.wsgi.application'
 
 
 DATABASES = {
-    "default": env.dj_db_url("DATABASE_URL",
-    default="postgres://postgres@db/postgres")
-}
-
-DATABASES = {
     "default": {
         "ENGINE": env("SQL_ENGINE", default="django.db.backends.sqlite3"),
         "NAME": env("SQL_DATABASE", default=BASE_DIR / "db.sqlite3"),
@@ -122,7 +123,6 @@ DATABASES = {
         "PORT": env("SQL_PORT", default="5432"),
     }
 }
-
 
 
 # Password validation
@@ -200,21 +200,21 @@ ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
 # tempus_dominus widget
-TEMPUS_DOMINUS_LOCALIZE = True 
-TEMPUS_DOMINUS_INCLUDE_ASSETS = True 
+TEMPUS_DOMINUS_LOCALIZE = True
+TEMPUS_DOMINUS_INCLUDE_ASSETS = True
 TEMPUS_DOMINUS_DATETIME_FORMAT = '%d/%m/%Y %H:%M'
 
 # production config
 # reverse-proxy server with redirection
-SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=False) 
+SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=False)
 SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=0)
 SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=False)
 SESSION_COOKIE_SECURE = env.bool("DJANGO_SESSION_COOKIE_SECURE", default=True)
 CSRF_COOKIE_SECURE = env.bool("DJANGO_CSRF_COOKIE_SECURE", default=True)
-CSRF_TRUSTED_ORIGINS = ['https://safe-your-mind.space', 'http://127.0.0.1:1337']
+CSRF_TRUSTED_ORIGINS = ['https://safe-your-mind.space']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
-# django-debug-toolbar 
+# django-debug-toolbar
 # ensures that our INTERNAL_IPS matches that of our Docker host
 import socket
 
