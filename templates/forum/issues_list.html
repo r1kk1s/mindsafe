@@ -6,12 +6,12 @@
 {% block content %}
     <h1>Форум</h1>
     <h3>Здесь Вы можете задать свой вопрос!</h3>
-    <div class="displaying-from-left">
+    <div class="displaying-from-left-0">
         <a href="{% url 'add_issue' %}" class="btn btn-success-custom">Задать вопрос</a>
     </div>
     <div class="cards">
         {% for issue in issues %}
-        <div class="card displaying-from-left">
+        <div class="card displaying-from-left-0">
             <div class="card-body">
                 <h3 class="card-title">{{ issue.title }}</h3>
                 <p><strong>{{ issue.patient }}: {{ issue.time_updated }}</strong></p>

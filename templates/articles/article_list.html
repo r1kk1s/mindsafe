@@ -7,7 +7,7 @@
     {% if user.is_superuser %}
         <a id="btn-admin" class="btn btn-success-custom" href="{% url 'add_article' %}">Добавить статью</a>
     {% endif %}
-    <div class="article-cards displaying-from-left">
+    <div class="article-cards displaying-from-left-0">
         {% for article in articles %}
         <div class="card">
             <img src="{{ article.photo.url }}" class="card-img-top" alt="...">

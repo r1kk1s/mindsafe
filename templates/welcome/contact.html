@@ -1,6 +1,5 @@
 {% extends "_base.html" %}
 {% load static %}
-{% load welcome_tags %}
 
 {% block title %}Контакты{% endblock title %}
 
@@ -12,19 +11,19 @@
 {% block content %}
     <h1>Связаться со мной</h1>
     <div class="social-block">
-        <div class="social displaying-from-left-diff-0">
+        <div class="social displaying-from-left-0">
             <h3>Мой номер телефона: </h3>
             <h3 id="phone-number">{{ superuser.phone }}</h3>
         </div>
-        <div class="social whatsapp displaying-from-left-diff-1">
+        <div class="social whatsapp displaying-from-left-1">
             <h3>Мой WhatsApp: </h3>
             <a href="https://wa.me/{{ superuser.phone }}?text=Здравствуйте%2C+у+меня+есть+вопрос" target="_blank"><i class="fa fa-whatsapp fa-2x"></i></a>
         </div>
-        <div class="social vk displaying-from-left-diff-2">
+        <div class="social vk displaying-from-left-2">
             <h3>Мой ВКонтакте: </h3>
             <a href="https://vk.com/vebandito" target="_blank"><i class="fa fa-vk fa-2x"></i></a>    
         </div>
-        <div class="social telegram displaying-from-left-diff-3">
+        <div class="social telegram displaying-from-left-3">
             <h3>Мой Telegram: </h3>
             <a href="https://t.me/vebandito" target="_blank"><i class="fa fa-paper-plane fa-2x"></i></a>
         </div>
