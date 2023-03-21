@@ -1,4 +1,5 @@
 from django import template
+from django.conf import settings
 
 from consultations.models import ConsultationEvent
 
@@ -26,3 +27,9 @@ def get_booked_dates() -> str:
     for date in ConsultationEvent.objects.values("date_time"):
         dates.append(str(date["date_time"].date()))
     return dates
+
+
+@register.simple_tag
+def get_admin_url() -> str:
+    """Возвращает ссылку на админ панель"""
+    return settings.ADMIN_URL

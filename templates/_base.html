@@ -33,7 +33,8 @@
                 </div>
                 <div class="auth">
                     {% if user.is_superuser %}
-                        <a id="btn-admin" class="btn btn-success-custom" href="/admin/">{{ user.username|capfirst|truncatechars:15 }}</a>
+                        {% get_admin_url as admin_url %}
+                        <a id="btn-admin" class="btn btn-success-custom" href="{{ admin_url }}">{{ user.username|capfirst|truncatechars:15 }}</a>
                         <a class="btn btn-danger-custom" href="{% url 'account_logout' %}">Выйти</a>
                     {% elif user.is_authenticated %}
                         <strong id="user">{{ user.username|capfirst|truncatechars:15 }} |</strong>

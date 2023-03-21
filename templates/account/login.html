@@ -13,6 +13,7 @@
         </div>
         <div class="displaying-from-left">
             <button class="btn btn-success-custom" type="submit">Войти</button>
+            <a href="{% url 'account_signup' %}" class="btn btn-success-custom">Зарегистрироваться</buttom>
             {% if form.errors %}
             <a class="btn btn-danger-custom" href="{% url 'account_reset_password' %}">Забыли пароль</a>
             {% endif %}
