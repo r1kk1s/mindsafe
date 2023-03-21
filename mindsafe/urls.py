@@ -3,7 +3,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from welcome.views import page_not_found
 
 urlpatterns = [
     # Django admin
@@ -28,4 +27,6 @@ if settings.DEBUG:
     ] + urlpatterns
 
 
-handler404 =    
+handler404 = 'welcome.views.page_not_found_view'
+
+handler500 = 'welcome.views.error_500_view'

@@ -11,16 +11,10 @@
         <div class="displaying">
             {{ form|crispy }}
         </div>
-        <div class="displaying-from-left-2">
-            <button class="btn btn-success-custom" type="submit">Войти</button>
-        </div>
-        <div class="displaying-from-left-0">
-            <a href="{% url 'account_signup' %}" class="btn btn-success-custom">Зарегистрироваться</a>
-        </div>
-            {% if form.errors %}
-            <div class="displaying-from-left-2">
-                <a class="btn btn-danger-custom" href="{% url 'account_reset_password' %}">Забыли пароль</a>
-            </div>
-            {% endif %}
+        <button class="btn btn-success-custom displaying-from-left-0" type="submit">Войти</button>
+        <a href="{% url 'account_signup' %}" class="btn btn-success-custom displaying-from-left-0">Зарегистрироваться</a>
+        {% if form.errors %}
+        <a class="btn btn-danger-custom displaying-from-bottom-0" href="{% url 'account_reset_password' %}">Забыли пароль</a>
+        {% endif %}
     </form>
 {% endblock content %}
