@@ -1,5 +1,6 @@
 {% extends "admin/base.html" %}
 {% load static %}
+{% load welcome_tags %}
 
 {% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 
@@ -9,7 +10,8 @@
 {% endblock %}
 
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+{% get_admin_url as admin_url %}
+<h1 id="site-name"><a href="{{ admin_url }}">{{ site_header|default:_('Django administration') }}</a></h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
