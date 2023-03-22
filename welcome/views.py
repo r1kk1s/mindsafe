@@ -1,20 +1,16 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.contrib.auth import get_user_model
-from djanfo.conf.url import handler404
 
 from .models import Welcome, Diplomas
-
-from django.core.mail import send_mail
-
-
 
 
 def show_welcome_page_view(request):
     """Показывает страницу приветствия"""
 
     return render(request, "welcome/home.html",
-                  {"home_info": Welcome.objects.filter(displayed=True)[0],
+                  {"home_info": get_list_or_404(Welcome, displayed=True)[0],
                    "diplomas": Diplomas.objects.all()})
+
 
 def show_my_contact_view(request):
     """Показывает контакты администратора"""
