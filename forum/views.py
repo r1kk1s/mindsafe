@@ -6,13 +6,16 @@ from .forms import IssueForm, AnswerForm
 
 
 def show_issues_list_view(request):
+    """Веб-сервис, показывающий список заданных вопросов с ответами на них"""
+
     return render(request,
                   "forum/issues_list.html",
                   {"issues": Issue.objects.all().select_related("patient", "answer")})
 
+
 @login_required
 def add_issue_view(request):
-    "Веб-сервис, записывающий проблему пациента в БД"
+    """Веб-сервис, записывающий вопрос пациента в БД"""
     
     if request.method == "POST":
         form = IssueForm(request.POST)
@@ -31,6 +34,7 @@ def add_issue_view(request):
 
 
 def add_answer_view(request, pk):
+    """Веб-сервис, записывающий ответ администратора на конкретный вопрос"""
 
     if request.method == "POST":
         form = AnswerForm(request.POST)

@@ -46,13 +46,14 @@ def show_consultation_detail_view(request, pk):
 def show_user_consultation_list_view(request):
     """Веб-сервис, отображающий записи текущего пользователя"""
 
-    return render(
-        request,
-        "consultations/my_consultations.html",
-        {"confirmed_consultations": ConsultationEvent.objects.filter(
-                patient=request.user, approved=True
-            ).select_related("consultation"),
+    context = {
+        "confirmed_consultations": ConsultationEvent.objects.filter(
+            patient=request.user, approved=True
+        ).select_related("consultation"),
         "non_confirmed_consultations": ConsultationEvent.objects.filter(
-                patient=request.user, approved=False
-            ).select_related("consultation"),
-        "issues": Issue.objects.filter(patient=request.user).select_related("patient", "answer")})
+            patient=request.user, approved=False
+        ).select_related("consultation"),
+        "issues": Issue.objects.filter(patient=request.user).select_related("patient", "answer")
+    }
+
+    return render(request, "consultations/my_consultations.html", context)
