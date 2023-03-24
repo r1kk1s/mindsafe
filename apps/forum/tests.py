@@ -12,8 +12,7 @@ class ForumTests(TestCase):
 
         cls.user = get_user_model().objects.create(
             email="test@mail.ru",
-            password1="testpass123",
-            password2="testpass123"
+            password="testpass123",
         )
 
         cls.issue = Issue.objects.create(

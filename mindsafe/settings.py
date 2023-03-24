@@ -71,12 +71,12 @@ INSTALLED_APPS = [
     "tempus_dominus",
     "debug_toolbar",
     # Local
-    "accounts.apps.AccountsConfig",
-    "welcome.apps.WelcomeConfig",
-    "consultations.apps.ConsultationsConfig",
-    "review.apps.ReviewConfig",
-    "articles.apps.ArticlesConfig",
-    "forum.apps.ForumConfig",
+    "apps.accounts.apps.AccountsConfig",
+    "apps.welcome.apps.WelcomeConfig",
+    "apps.consultations.apps.ConsultationsConfig",
+    "apps.review.apps.ReviewConfig",
+    "apps.articles.apps.ArticlesConfig",
+    "apps.forum.apps.ForumConfig",
 ]
 
 MIDDLEWARE = [

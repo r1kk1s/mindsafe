@@ -22,10 +22,10 @@ def show_my_contact_view(request):
 def page_not_found_view(request, exception):
     """Отображает ошибку 404 - страница не найдена"""
 
-    return render(request, "errors/404.html")
+    return render(request, "errors/404.html", status=404)
 
 
-def error_500_view(request, exception):
+def error_500_view(request, *args, **kwargs):
     """Отображет ошибку сервера 500"""
 
-    return render(request, "errors/500.html")
+    return render(request, "errors/500.html", status=500)
