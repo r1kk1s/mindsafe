@@ -12,10 +12,10 @@ RUN mkdir $APP_HOME/staticfiles
 RUN mkdir $APP_HOME/mediafiles
 WORKDIR $APP_HOME
 
-COPY ../requirements.txt .
+COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY .. $APP_HOME
+COPY . $APP_HOME
 
 RUN chown -R app:app $APP_HOME
 

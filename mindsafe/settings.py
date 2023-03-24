@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
+import sys
 from pathlib import Path
 from environs import Env
 env = Env()
@@ -17,6 +19,7 @@ env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,8 +32,7 @@ DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 ALLOWED_HOSTS = [
     '217.18.60.84',
-    'safe-your-mind.space',
-    'www.safe-your-mind.space',
+    '.safe-your-mind.space',
     '127.0.0.1',
 ]
 
@@ -71,12 +73,12 @@ INSTALLED_APPS = [
     "tempus_dominus",
     "debug_toolbar",
     # Local
-    "apps.accounts.apps.AccountsConfig",
+    "accounts.apps.AccountsConfig",
     "apps.welcome.apps.WelcomeConfig",
-    "apps.consultations.apps.ConsultationsConfig",
-    "apps.review.apps.ReviewConfig",
-    "apps.articles.apps.ArticlesConfig",
-    "apps.forum.apps.ForumConfig",
+    "consultations.apps.ConsultationsConfig",
+    "review.apps.ReviewConfig",
+    "articles.apps.ArticlesConfig",
+    "forum.apps.ForumConfig",
 ]
 
 MIDDLEWARE = [
