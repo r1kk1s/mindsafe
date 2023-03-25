@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
-from consultations.models import AvailableConsultation
+from apps.consultations.models import AvailableConsultation
 
 
 class Review(models.Model):

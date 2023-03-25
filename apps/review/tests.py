@@ -1,17 +1,20 @@
 from django.urls import reverse
 from django.test import TestCase
-from django.core.files import File
 from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from .models import Review
-from consultations.models import AvailableConsultation
+from apps.consultations.models import AvailableConsultation
 
 
 class WelcomeTests(TestCase):
     @classmethod
-    def setUPTestData(cls):
-        file = open("/static/images/my_photo.JPG", "rb")
-        cls.photo = File(file)
+    def setUpTestData(cls):
+        cls.photo = SimpleUploadedFile(
+            name="my_photo.JPG",
+            content=open("/home/app/web/staticfiles/images/my_photo.JPG", 'rb').read(),
+            content_type='image/jpeg'
+        )
 
         cls.user = get_user_model().objects.create(
             email="test@mail.ru",

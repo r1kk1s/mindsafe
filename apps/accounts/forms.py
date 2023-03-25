@@ -7,7 +7,6 @@ from allauth.account.forms import SignupForm
 import re
 
 
-
 class CustomUserCreationForm(UserCreationForm):
     
     class Meta:

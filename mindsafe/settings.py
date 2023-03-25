@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-import os
 import sys
 from pathlib import Path
 from environs import Env
@@ -19,8 +18,8 @@ env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
+sys.path.append(str(BASE_DIR / "apps"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -74,7 +73,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     # Local
     "accounts.apps.AccountsConfig",
-    "apps.welcome.apps.WelcomeConfig",
+    "welcome.apps.WelcomeConfig",
     "consultations.apps.ConsultationsConfig",
     "review.apps.ReviewConfig",
     "articles.apps.ArticlesConfig",
@@ -223,4 +222,3 @@ import socket
 
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
-

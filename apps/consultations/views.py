@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, get_list_or_40
 from django.contrib.auth.decorators import login_required
 
 from .models import AvailableConsultation, ConsultationEvent
-from forum.models import Issue
+from apps.forum.models import Issue
 from .forms import ConsultationEventForm
 
 

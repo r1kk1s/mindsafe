@@ -1,6 +1,5 @@
 from django.urls import reverse
 from django.test import TestCase
-from django.core.files import File
 from django.contrib.auth import get_user_model
 
 from .models import Issue, Answer
@@ -8,8 +7,7 @@ from .models import Issue, Answer
 
 class ForumTests(TestCase):
     @classmethod
-    def setUPTestData(cls):
-
+    def setUpTestData(cls):
         cls.user = get_user_model().objects.create(
             email="test@mail.ru",
             password="testpass123",

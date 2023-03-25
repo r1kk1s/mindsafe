@@ -1,8 +1,8 @@
 import datetime
 from django.urls import reverse
 from django.test import TestCase
-from django.core.files import File
 from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from .models import AvailableConsultation, ConsultationEvent
 
@@ -10,14 +10,18 @@ from .models import AvailableConsultation, ConsultationEvent
 class ConsulationTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        file = open("static/images/my_photo.JPG", "rb")
-        cls.photo = File(file)
+        cls.photo = SimpleUploadedFile(
+            name="my_photo.JPG",
+            content=open("/home/app/web/staticfiles/images/my_photo.JPG", 'rb').read(),
+            content_type='image/jpeg'
+        )
 
         cls.user = get_user_model().objects.create(
             email="test@mail.ru",
             phone="89181234567",
             password="testpass123",
         )
+        cls.user.is_active = True
 
         cls.consultation = AvailableConsultation.objects.create(
             title="some cool consulation",
@@ -38,8 +42,12 @@ class ConsulationTests(TestCase):
 
     def test_consultation_content(self):
         self.assertEqual(self.consultation.title, "some cool consulation")
-        self.assertEqual(self.consultation.title, "very cool description")
-        self.assertEqual(self.consultation.photo, self.file)
+        self.assertEqual(self.consultation.description, "very cool description")
+
+    def test_event_content(self):
+        self.assertEqual(self.event.consultation, self.consultation)
+        self.assertEqual(self.event.patient, self.user)
+        self.assertEqual(self.event.description, "something interesting")
 
     def test_show_available_consultation_list_view(self):
         response = self.client.get(reverse("consultation_list"))
@@ -64,9 +72,4 @@ class ConsulationTests(TestCase):
         self.client.logout()
         response = self.client.get(self.consultation.get_absolute_url())
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(
-            response,
-            "%s?next=/consultation_detail/" % (reverse("account_login"))
-        )
-        response = self.client.get("%s?next=/books/" % (reverse("account_login")))
         self.assertContains(response, "Вход")

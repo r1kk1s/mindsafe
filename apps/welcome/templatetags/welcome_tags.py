@@ -1,7 +1,7 @@
 from django import template
 from django.conf import settings
 
-from consultations.models import ConsultationEvent
+from apps.consultations.models import ConsultationEvent
 
 
 register = template.Library()
