@@ -6,7 +6,7 @@ class ReviewSitemap(Sitemap):
     changefreq = "daily"
 
     def items(self):
-        return ["reviews", "add_review"]
+        return ["add_review"]
     
     def location(self, item):
         return reverse(item)

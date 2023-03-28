@@ -9,7 +9,7 @@ class WelcomeSitemap(Sitemap):
 
     def items(self):
         list_of_links = []
-        for nav_item in show_navbar_links():
+        for nav_item in show_navbar_links()[1:]:
             list_of_links.append(nav_item["view_name"])
         return list_of_links
     
