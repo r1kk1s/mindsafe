@@ -35,12 +35,12 @@ class WelcomeTests(TestCase):
             is_superuser=True
         )
 
-    def test_welcome_content(self):
+    def test_welcome_model(self):
         self.assertEqual(self.welcome.title, "some cool title")
         self.assertEqual(self.welcome.description, "the coolest description")
         self.assertEqual(self.welcome.displayed, True)
 
-    def test_diploma_content(self):
+    def test_diploma_model(self):
         self.assertEqual(self.diploma.title, "cool diploma")
         self.assertEqual(self.diploma.description, "the best psychologist")
 

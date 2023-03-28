@@ -2,6 +2,22 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.sitemaps.views import sitemap
+
+from apps.welcome.sitemaps import WelcomeSitemap
+from apps.consultations.sitemaps import ConsultationSitemap
+from apps.articles.sitemaps import ArticleSitemap
+from apps.forum.sitemaps import IssueSitemap
+from apps.review.sitemaps import ReviewSitemap
+
+
+sitemaps = {
+    "welcome": WelcomeSitemap,
+    "consultations": ConsultationSitemap,
+    "articles": ArticleSitemap,
+    "forum": IssueSitemap,
+    "review": ReviewSitemap,
+}
 
 
 urlpatterns = [
@@ -15,6 +31,8 @@ urlpatterns = [
     path("review/", include("apps.review.urls")),
     path("articles/", include("apps.articles.urls")),
     path("forum/", include("apps.forum.urls")),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap')
 ] + static(
  settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )

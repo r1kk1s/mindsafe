@@ -4,6 +4,7 @@
 {% block title %}Добавить статью{% endblock title %}
 
 {% block content %}
+    <h1>Добавьте статью</h1>
     <form class="displaying" method="post" enctype="multipart/form-data" action="{% url 'add_article' %}">
         {% csrf_token %}
         {{ form.errors }}

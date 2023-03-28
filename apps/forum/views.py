@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 
 from .models import Issue
@@ -33,6 +34,7 @@ def add_issue_view(request):
                   {"form": form})
 
 
+@staff_member_required
 def add_answer_view(request, pk):
     """Веб-сервис, записывающий ответ администратора на конкретный вопрос"""
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.admin.views.decorators import staff_member_required
 
 from .models import Articles, ArticlesReview
 from .forms import ArticlesForm, ArticlesReviewForm
@@ -41,6 +42,7 @@ def show_articles_detail_view(request, pk):
     return render(request, "articles/article_detail.html", context)
 
 
+@staff_member_required
 def add_article(request):
     "Веб-сервис, позволяющий администратору писать статьи прямо с сайта"
 

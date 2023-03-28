@@ -33,7 +33,7 @@ class WelcomeTests(TestCase):
             review="the cool and fair review",
         )
 
-    def test_review_content(self):
+    def test_review_model(self):
         self.assertEqual(self.review.consultation, self.consultation)
         self.assertEqual(self.review.patient, self.user)
         self.assertEqual(self.review.review, "the cool and fair review")
@@ -44,3 +44,12 @@ class WelcomeTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "fair review")
         self.assertTemplateUsed(response, "review/review_list.html")
+
+    def test_add_review_view(self):
+        self.client.force_login(self.user)
+        review_form_data = {"consultation": self.consultation,
+                            "patient": self.user,
+                            "review": "very grateful review"}
+        response = self.client.post(reverse("add_review"),
+                                    data=review_form_data)
+        self.assertEqual(response.status_code, 200)
