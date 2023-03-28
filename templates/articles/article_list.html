@@ -2,6 +2,10 @@
 
 {% block title %}Список статей{% endblock title %}
 
+{% block extrahead %}
+    <meta name="description" content="В этом разделе Вас ждут увлекательных и, что самое важное, полезные статьи на самые разные темы написанные специалистом в области психологии." />
+{% endblock extrahead %}
+
 {% block content %}
     <h1>Статьи</h1>
     {% if user.is_superuser %}
