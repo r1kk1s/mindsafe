@@ -6,7 +6,7 @@
 
 {% block content %}
     <h1>Здесь Вы можете одобрить записи и ответить на вопросы пользователей, {{ user }}!</h1>
-    <div class="records displaying-from-left-1">
+    <div class="displaying-from-left-1">
         <h3>Записи ждут Вашего одобрения:</h3>
         <div class="cards">
         {% for cons in non_confirmed_consultations %}
@@ -40,7 +40,7 @@
     {% if issues %}
         <h1>Вопросы пациентов</h1>
         {% for issue in issues %}
-            <div class="records displaying-from-right">
+            <div class="displaying-from-right">
                 <div class="non-confirmed">
                     <div class="card displaying">
                         <div class="card-body">

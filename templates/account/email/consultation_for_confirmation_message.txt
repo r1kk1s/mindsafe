@@ -1,11 +1,11 @@
-{% extends "account/email/base_message.txt" %}
-{% load i18n %}
+Привет от {{ site_name }}!
 
-{% block content %}
 Вы получили это электронное письмо, потому что пользователь {{ event.patient }} хочет записаться на {{ event.consultation }} - {{ event.date_time }}
 Если Вас устраивает время, подтвердить это письмо Вы сможете в админ панели сайта.
 
 При необходимости Вы можете связаться с пациентом - {{ event.patient.email }}
 
 Удачной консультации!
-{% endblock %}
+
+Благодарим Вас за использование {{ site_name }}!
+{{ domain_name }}
