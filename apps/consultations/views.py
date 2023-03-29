@@ -1,9 +1,12 @@
-from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 
 from .models import AvailableConsultation, ConsultationEvent
 from apps.forum.models import Issue
 from .forms import ConsultationEventForm
+from .services import (send_consultation_event_email_for_confirmation,
+                       send_confirmed_consultation_event_email)
 
 
 def show_available_consultation_list_view(request):
@@ -29,6 +32,7 @@ def show_consultation_detail_view(request, pk):
             event.consultation = selected_consultation
             event.patient = request.user
             event.save()
+            send_consultation_event_email_for_confirmation(event)
             return redirect("my_consultations")
             
     else:
@@ -57,3 +61,32 @@ def show_user_consultation_list_view(request):
     }
 
     return render(request, "consultations/my_consultations.html", context)
+
+
+@staff_member_required
+def show_issues_and_consultations_for_confirmation_view(request):
+    """Веб-сервис, отображающий консультации к подтверждению и вопросы пациентов"""
+
+    context = {
+        "non_confirmed_consultations": ConsultationEvent.objects.filter(
+            approved=False
+        ),
+        "confirmed_consultations": ConsultationEvent.objects.filter(
+            approved=True
+        ),
+        "issues": Issue.objects.filter(answer=None)
+    }
+
+    return render(request, "consultations/consultations_confirmation.html", context)
+
+
+@staff_member_required
+def confirmed_consultation(request, pk):
+    "Подтверждает запись пользователя"
+
+    consultation_event = ConsultationEvent.objects.get(pk=pk)
+    consultation_event.approved = True
+    consultation_event.save()
+    send_confirmed_consultation_event_email(consultation_event)
+
+    return redirect("consultations_confirmation")

@@ -50,7 +50,7 @@ EMAIL_BACKEND = env(
 
 ADMINS = (
     ("Robert", "robert2217@icloud.com"),
-    ("robert", "rkazaryan00@mail.ru"),
+    ("Veronika", "veronika_kazaryan1997@mail.ru"),
 )
 MANAGERS = ADMINS
 

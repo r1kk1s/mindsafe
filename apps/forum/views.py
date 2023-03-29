@@ -42,8 +42,6 @@ def add_answer_view(request, pk):
         form = AnswerForm(request.POST)
 
         if form.is_valid:
-            issue = form.save(commit=False)
-            issue.patient = request.user
             form.save()
             return redirect("issue_list")
     

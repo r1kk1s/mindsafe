@@ -7,7 +7,7 @@
     <div class="displaying">
         <h3>Ответ на {{ issue.title }} </h3>
         <p>{{ issue.desctiption }}</p>
-        <form method="post" action="{% url 'add_answer' %}">
+        <form method="post" action="">
             {% csrf_token %}
             {{ form.errors }}
             {{ form|crispy }}

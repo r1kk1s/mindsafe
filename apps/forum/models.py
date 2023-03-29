@@ -22,7 +22,7 @@ class Issue(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("add_answer", kwargs={"pk":str(self.pk)})
+        return reverse("add_answer", kwargs={"pk": self.pk})
 
 
 class Answer(models.Model):

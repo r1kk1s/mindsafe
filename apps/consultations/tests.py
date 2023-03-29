@@ -81,3 +81,9 @@ class ConsulationTests(TestCase):
         self.client.logout()
         response = self.client.get(self.consultation.get_absolute_url())
         self.assertEqual(response.status_code, 302)
+
+    def test_show_issues_and_consultations_for_confirmation_view(self):
+        pass
+
+    def test_confirmed_consultation(self):
+        pass

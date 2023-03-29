@@ -1,0 +1,66 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Консультации и вопросы{% endblock title %}
+
+{% block content %}
+    <h1>Здесь Вы можете одобрить записи и ответить на вопросы пользователей, {{ user }}!</h1>
+    <div class="records displaying-from-left-1">
+        <div class="non-confirmed">
+            <h3>Записи ждут Вашего одобрения:</h3>
+            <div class="cards">
+            {% for cons in non_confirmed_consultations %}
+                <div class="card displaying">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ cons.consultation }}</h5>
+                        <h6 class="card-title">{{ cons.date_time }}</h6>
+                        <h6 class="card-title">{{ cons.patient }}</h6>
+                        <p class="card-text">{{ cons.description }}</p>
+                    </div>
+                    <div class="custom-card-footer">
+                        <a href="{% url 'confirmed_consultation' pk=cons.pk %}" class="btn btn-success-custom">Подтвердить запись</a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="confirmed">
+            <h3>Одобренные записи:</h3>
+            {% for cons in confirmed_consultations %}
+            <div class="card displaying">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cons.consultation }}</h5>
+                    <h6 class="card-title">{{ cons.date_time }}</h6>
+                    <h6 class="card-title">{{ cons.patient }}</h6>
+                    <p class="card-text">{{ cons.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if issues %}
+        <h1>Вопросы пациентов</h1>
+        {% for issue in issues %}
+            <div class="records displaying-from-right">
+                <div class="non-confirmed">
+                    <div class="card displaying">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ issue.title }}</h5>
+                            <h6 class="card-title">{{ issue.time_updated }}</h6>
+                            <h6 class="card-title">{{ issue.patient }}</h6>
+                            <p class="card-text">{{ issue.description }}</p>
+                        </div>
+                        <div class="custom-card-footer">
+                            <a href="{{ issue.get_absolute_url }}" class="btn btn-success-custom">Ответить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div id="account-management">
+        <a class="btn btn-success-custom displaying-from-bottom-0" href="{% url 'account_change_password' %}">Сменить пароль</a>
+        <a class="btn btn-success-custom displaying-from-bottom-1" href="{% url 'account_email' %}">Добавить почту</a>
+    </div>
+{% endblock content %}

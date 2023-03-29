@@ -16,8 +16,18 @@ navbar = [
     {"title": "FAQ", "view_name": "issue_list"},
 ]
 
-@register.simple_tag
-def show_navbar_links():
+@register.simple_tag(takes_context=True)
+def show_navbar_links(context):
+    """
+    Возвращает словарь для навигационной панели
+    Для админа заменяет вкладку "Ваши записи"
+    """
+    request = context["request"]
+    if request.user.is_superuser:
+        for link in navbar:
+            if link["view_name"] == "my_consultations":
+                link["title"] = "Записи и вопросы"
+                link["view_name"] = "consultations_confirmation"
     return navbar
 
 

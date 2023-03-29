@@ -7,7 +7,6 @@ from django.contrib.sitemaps.views import sitemap
 from apps.welcome.sitemaps import WelcomeSitemap
 from apps.consultations.sitemaps import ConsultationSitemap
 from apps.articles.sitemaps import ArticleSitemap
-from apps.forum.sitemaps import IssueSitemap
 from apps.review.sitemaps import ReviewSitemap
 
 
@@ -15,7 +14,6 @@ sitemaps = {
     "welcome": WelcomeSitemap,
     "consultations": ConsultationSitemap,
     "articles": ArticleSitemap,
-    "forum": IssueSitemap,
     "review": ReviewSitemap,
 }
 
