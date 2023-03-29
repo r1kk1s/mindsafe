@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
-
+from django.utils.html import strip_tags
 
 from .models import ConsultationEvent
 
@@ -21,14 +21,14 @@ def send_consultation_event_email_for_confirmation(event) -> None:
     о записи пользователя на выбранную им дату
     """
     context = {"event": event}
-
+    subject = "Запись на прием"
     message = render_to_string(
         "account/email/consultation_for_confirmation_message.txt",
         context
     )
 
     email = EmailMessage(
-        subject="Запись пользователя",
+        subject=subject,
         body=message,
         to=settings.ADMINS
     )
@@ -41,14 +41,14 @@ def send_confirmed_consultation_event_email(event):
     после подтверждения его записи администратором
     """
     context = {"event": event}
-    
+    subject = "Вы записаны на прием"
     message = render_to_string(
         "account/email/consultation_confirmed_message.txt",
         context
     )
 
     email = EmailMessage(
-        subject="Вы записаны на прием",
+        subject=subject,
         body=message,
         to=[event.patient.email]
     )

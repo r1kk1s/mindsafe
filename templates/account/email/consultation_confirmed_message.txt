@@ -1,9 +1,10 @@
 {% extends "account/email/base_message.txt" %}
 {% load i18n %}
 
-{% block content %}{% autoescape off %}{% blocktrans %}
+{% block content %}
+
 {{ event.patient }}, Ваша консультация - {{ event.consultation }} одобрена!
 Ждем Вас - {{ event.date_time }}
 
 Удачной консультации!
-{% endblocktrans %}{% endautoescape %}{% endblock %}
+{% endblock %}

@@ -7,25 +7,23 @@
 {% block content %}
     <h1>Здесь Вы можете одобрить записи и ответить на вопросы пользователей, {{ user }}!</h1>
     <div class="records displaying-from-left-1">
-        <div class="non-confirmed">
-            <h3>Записи ждут Вашего одобрения:</h3>
-            <div class="cards">
-            {% for cons in non_confirmed_consultations %}
-                <div class="card displaying">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ cons.consultation }}</h5>
-                        <h6 class="card-title">{{ cons.date_time }}</h6>
-                        <h6 class="card-title">{{ cons.patient }}</h6>
-                        <p class="card-text">{{ cons.description }}</p>
-                    </div>
-                    <div class="custom-card-footer">
-                        <a href="{% url 'confirmed_consultation' pk=cons.pk %}" class="btn btn-success-custom">Подтвердить запись</a>
-                    </div>
+        <h3>Записи ждут Вашего одобрения:</h3>
+        <div class="cards">
+        {% for cons in non_confirmed_consultations %}
+            <div class="card displaying">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cons.consultation }}</h5>
+                    <h6 class="card-title">{{ cons.date_time }}</h6>
+                    <h6 class="card-title">{{ cons.patient }}</h6>
+                    <p class="card-text">{{ cons.description }}</p>
                 </div>
-            {% endfor %}
+                <div class="custom-card-footer">
+                    <a href="{% url 'confirmed_consultation' pk=cons.pk %}" class="btn btn-success-custom">Подтвердить запись</a>
+                </div>
             </div>
+        {% endfor %}
         </div>
-        <div class="confirmed">
+        <div class="cards">
             <h3>Одобренные записи:</h3>
             {% for cons in confirmed_consultations %}
             <div class="card displaying">
