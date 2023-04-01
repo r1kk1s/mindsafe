@@ -25,7 +25,7 @@ def send_consultation_event_email_for_confirmation(event) -> None:
     """
     context = {
         "event": event,
-        "site_name": CURRENT_SITE,
+        "site_name": CURRENT_SITE.name,
         "domain_name": CURRENT_SITE.domain
     }
     subject = "Запись на прием"
@@ -42,14 +42,14 @@ def send_consultation_event_email_for_confirmation(event) -> None:
     email.send()
 
 
-def send_confirmed_consultation_event_email(event):
+def send_confirmed_consultation_event_email(event) -> None:
     """
     Отправляет письмо пациенту
     после подтверждения его записи администратором
     """
     context = {
         "event": event,
-        "site_name": CURRENT_SITE,
+        "site_name": CURRENT_SITE.name,
         "domain_name": CURRENT_SITE.domain
     }
     subject = "Вы записаны на прием"
