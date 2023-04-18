@@ -15,7 +15,6 @@ def show_available_consultation_list_view(request):
     return render(request, "consultations/consultation_list.html", {
         "consultation_cards": enumerate(AvailableConsultation.objects.all()),
     })
-                  
 
 
 @login_required
@@ -45,7 +44,7 @@ def show_consultation_detail_view(request, pk):
 
     return render(request, "consultations/consultation_detail.html", context)
 
-    
+
 @login_required
 def show_user_consultation_list_view(request):
     """Веб-сервис, отображающий записи текущего пользователя"""

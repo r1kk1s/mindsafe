@@ -93,7 +93,6 @@ MIDDLEWARE = [
 ]
 
 
-
 ROOT_URLCONF = 'mindsafe.urls'
 
 TEMPLATES = [
