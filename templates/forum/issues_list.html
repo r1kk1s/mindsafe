@@ -17,7 +17,6 @@
         {% for issue in issues %}
         <div class="card displaying-from-left-0">
             <div class="card-body">
-                <h3 class="card-title">{{ issue.title }}</h3>
                 <p><strong>{{ issue.patient }}: {{ issue.time_updated }}</strong></p>
                 <p class="card-text">{{ issue.description }}</p>
             {% if user.is_superuser and issue.answer.description == "" %}
