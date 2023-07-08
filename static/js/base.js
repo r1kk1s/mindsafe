@@ -14,16 +14,18 @@ aArray.forEach((a) => {
 
 let navbar = document.querySelector('nav');
 function hideNavbar() {
-  if (window.innerWidth < 1250) {
+  if (window.innerWidth < 1290) {
     navbar.classList.remove("navbar-expand-lg");
   }
-
 };
+
+
 function showNavbar() {
-  if (window.innerWidth > 1250 && !navbar.classList.contains("navbar-expand-lg")) {
+  if (window.innerWidth > 1290 && !navbar.classList.contains("navbar-expand-lg")) {
     navbar.classList.add("navbar-expand-lg");
   }
 };
+
 
 let auth = document.querySelector('.auth')
 function hideAuth() {
@@ -50,5 +52,4 @@ window.addEventListener('resize', function() {
   hideNavbar();
   hideAuth();
 });
-
 

@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Welcome(models.Model):
-    title = models.CharField(max_length=255, verbose_name="Название")
+    title = models.CharField(max_length=500, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     photo = models.ImageField(upload_to="photos/me/%Y/%m/%d/", verbose_name="Фото")
     displayed = models.BooleanField(default=True, verbose_name="Отображать")
