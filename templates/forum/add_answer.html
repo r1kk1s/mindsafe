@@ -5,7 +5,8 @@
 
 {% block content %}
     <div class="displaying">
-        <p>{{ issue.desctiption }}</p>
+        <h3>Ответ на вопрос:</h3>
+        <p>{{ issue.description }}</p>
         <form method="post" action="">
             {% csrf_token %}
             {{ form.errors }}
