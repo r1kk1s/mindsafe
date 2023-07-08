@@ -4,7 +4,6 @@ from django.contrib.auth import get_user_model
 
 
 class Issue(models.Model):
-    title = models.CharField(unique=True, max_length=255, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     patient = models.ForeignKey(get_user_model(),
                                 on_delete=models.CASCADE,

@@ -8,7 +8,6 @@ class IssueForm(forms.ModelForm):
     class Meta:
         model = Issue
         fields = (
-            "title",
             "description",
         )
 
