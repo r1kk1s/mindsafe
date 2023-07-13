@@ -37,11 +37,13 @@ def add_issue_view(request):
 @staff_member_required
 def add_answer_view(request, pk):
     """Веб-сервис, записывающий ответ администратора на конкретный вопрос"""
-
+    issue = get_object_or_404(Issue, pk=pk)
     if request.method == "POST":
         form = AnswerForm(request.POST)
 
         if form.is_valid:
+            answer = form.save(commit=False)
+            answer.issue = issue
             form.save()
             return redirect("issue_list")
     
@@ -50,4 +52,4 @@ def add_answer_view(request, pk):
     return render(request,
                   "forum/add_answer.html",
                   {"form": form,
-                   "issue": get_object_or_404(Issue, pk=pk)})
+                   "issue": issue})
