@@ -1,7 +1,6 @@
 .venv
 __pycache__/
 .dockerignore
-docker-compose-prod.yml
 .env
 .env_db
 .env_not_prod

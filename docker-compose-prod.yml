@@ -1,0 +1,46 @@
+version: '3.3'
+services:
+ web:
+  build:
+   context: .
+   dockerfile: ./docker/Dockerfile
+  command: gunicorn mindsafe.wsgi:application -b 0.0.0.0:8000
+  expose:
+   - 8000
+  depends_on:
+   - db
+  restart: always
+  volumes:
+   - .:/code
+   - static_volume:/home/app/web/staticfiles
+   - media_volume:/home/app/web/mediafiles
+  env_file:
+   - .env
+ db:
+  image: postgres:13
+  volumes:
+   - postgres_data:/var/lib/postgresql/data/
+  ports:
+   - 5432:5432
+  env_file:
+   - .env_db
+  restart: always
+ nginx:
+  build:
+   context: .
+   dockerfile: ./docker/nginx/Dockerfile
+  ports:
+   - 80:80
+   - 443:443
+  depends_on:
+   - web
+  restart: always
+  volumes:
+   - /etc/nginx/ssl:/etc/nginx/ssl
+   - static_volume:/home/app/web/staticfiles
+   - media_volume:/home/app/web/mediafiles
+volumes:
+ postgres_data:
+ static_volume:
+ media_volume:
+ nginx_conf:
