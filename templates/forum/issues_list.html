@@ -23,7 +23,7 @@
             <a href="{{ issue.get_absolute_url }}" id="btn-admin" class="btn btn-success-custom">Ответить</a>
             {% endif %}
             </div>
-            <div class="card-footer">
+            <div class="card-footer collapse text-cutter">
                 <h3>Ответ на Ваш вопрос:</h3>
                 {% if issue.answer.description == "" %}
                 <div class="gif">
@@ -32,6 +32,9 @@
                 {% endif %}
                 <p><strong>{{ issue.answer.time_updated }}</strong></p>
                 <p class="card-text">{{ issue.answer.description }}</p>
+                <div class="custom-card-footer">
+                    <button class="btn btn-success-custom remove-button">Развернуть</button>
+                </div>
             </div>
         </div>
         {% endfor %}

@@ -2,7 +2,7 @@
     <h1>Мои дипломы</h1>
     {% for diplom in diplomas %}
         <div>
-            <img src="{{ diplom.photo.url }}" alt="Фото диплома" />
+            <img class="diplom-photo" src="{{ diplom.photo.url }}" alt="Фото диплома" />
         </div>
     {% endfor %}
 {% endif %}

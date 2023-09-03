@@ -96,6 +96,17 @@ h3 {
     object-fit:cover;
 }
 
+.diplom-photo {
+    margin: 10%;
+    border-radius: 30px;
+    width: 80%;
+}
+
+.article-photo {
+    height: 250px;
+    object-fit: cover;
+}
+
 .input-group-text {
     padding: 0.7rem 1.5rem;
     font-size: 1.3rem;
@@ -321,3 +332,9 @@ form {
     margin: 0 1% 1% 0;
 }
 
+.text-cutter {
+    -webkit-line-clamp: 10;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow-x: hidden;
+}

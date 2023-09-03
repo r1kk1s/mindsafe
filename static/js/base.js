@@ -53,3 +53,11 @@ window.addEventListener('resize', function() {
   hideAuth();
 });
 
+
+let buttons = document.querySelectorAll('.remove-button');
+buttons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    let parentElement = button.closest('.collapse');
+    parentElement.classList.toggle('.text-cutter');
+  });
+});

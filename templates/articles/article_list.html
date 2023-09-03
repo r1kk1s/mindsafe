@@ -14,7 +14,7 @@
     <div class="article-cards displaying-from-left-0">
         {% for article in articles %}
         <div class="card">
-            <img src="{{ article.photo.url }}" class="card-img-top" alt="...">
+            <img src="{{ article.photo.url }}" class="card-img-top article-photo" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{ article.title }}</h5>
                 <p class="card-text"><small>{{ article.time_updated }}</small></p>
