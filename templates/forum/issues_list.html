@@ -18,7 +18,7 @@
         <div class="card displaying-from-left-0">
             <div class="card-body">
                 <p><strong>{{ issue.patient }}: {{ issue.time_updated }}</strong></p>
-                <p class="card-text">{{ issue.description }}</p>
+                <p class="card-text">{{ issue.description|linebreaks }}</p>
             {% if user.is_superuser and issue.answer.description == "" %}
             <a href="{{ issue.get_absolute_url }}" id="btn-admin" class="btn btn-success-custom">Ответить</a>
             {% endif %}
@@ -31,7 +31,7 @@
                 </div>
                 {% endif %}
                 <p><strong>{{ issue.answer.time_updated }}</strong></p>
-                <p class="card-text">{{ issue.answer.description }}</p>
+                <p class="card-text">{{ issue.answer.description|safe }}</p>
                 <div class="custom-card-footer">
                     <button class="btn btn-success-custom remove-button">Развернуть</button>
                 </div>

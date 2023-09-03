@@ -18,7 +18,7 @@ class Issue(models.Model):
         ordering = ["-time_updated", "-time_created"]
 
     def __str__(self):
-        return self.patient
+        return f"{self.patient.username}: {self.time_created.strftime('%d.%m.%Y %H:%M')} | {self.description[:90]}"
 
     def get_absolute_url(self):
         return reverse("add_answer", kwargs={"pk": self.pk})
@@ -40,4 +40,4 @@ class Answer(models.Model):
         ordering = ["-time_updated", "-time_created"]
     
     def __str__(self):
-        return self.issue
+        return f"{self.issue.patient.username}: {self.time_created.strftime('%d.%m.%Y %H:%M')} | {self.description[:90]}"
