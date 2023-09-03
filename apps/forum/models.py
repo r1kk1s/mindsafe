@@ -18,7 +18,7 @@ class Issue(models.Model):
         ordering = ["-time_updated", "-time_created"]
 
     def __str__(self):
-        return self.title
+        return self.patient
 
     def get_absolute_url(self):
         return reverse("add_answer", kwargs={"pk": self.pk})
