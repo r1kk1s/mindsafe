@@ -15,7 +15,7 @@ class Issue(models.Model):
         db_table = "issues"
         verbose_name = "Вопрос"
         verbose_name_plural = "Вопросы"
-        ordering = ["time_created",]
+        ordering = ["-time_updated", "-time_created"]
 
     def __str__(self):
         return self.title
@@ -37,7 +37,7 @@ class Answer(models.Model):
         db_table = "answers"
         verbose_name = "Ответ"
         verbose_name_plural = "Ответы"
-        ordering = ["time_created",]
+        ordering = ["-time_updated", "-time_created"]
     
     def __str__(self):
         return self.issue.title

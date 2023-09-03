@@ -22,7 +22,7 @@ class Review(models.Model):
         db_table = "reviews"
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
-        ordering = ["time_created"]
+        ordering = ["-time_created"]
 
     def __str__(self):
         return self.consultation.title
