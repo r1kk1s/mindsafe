@@ -7,17 +7,25 @@ services:
   command: gunicorn mindsafe.wsgi -b 0.0.0.0:8000
   volumes:
    - .:/code
+   - static_volume:/home/app/web/staticfiles
+   - media_volume:/home/app/web/mediafiles
   ports:
    - 8000:8000
-  depends_on:
-   - db
   env_file:
    - .env_not_prod
- db:
-  image: postgres:13
+ nginx:
+  build:
+   context: .
+   dockerfile: ./docker/nginx/not_prod/Dockerfile
+  ports:
+   - 80:80
+  depends_on:
+   - web
+  restart: always
   volumes:
-   - postgres_data:/var/lib/postgresql/data/
-  env_file:
-   - .env_db
+   - static_volume:/home/app/web/staticfiles
+   - media_volume:/home/app/web/mediafiles
 volumes:
- postgres_data:
+ static_volume:
+ media_volume:
+ nginx_conf:

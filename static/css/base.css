@@ -338,3 +338,7 @@ form {
     -webkit-box-orient: vertical;
     overflow-x: hidden;
 }
+
+.expand {
+    border: white;
+}

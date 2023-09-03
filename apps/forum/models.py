@@ -40,4 +40,4 @@ class Answer(models.Model):
         ordering = ["-time_updated", "-time_created"]
     
     def __str__(self):
-        return self.issue.title
+        return self.issue

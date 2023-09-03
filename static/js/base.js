@@ -57,7 +57,7 @@ window.addEventListener('resize', function() {
 let buttons = document.querySelectorAll('.remove-button');
 buttons.forEach(function(button) {
   button.addEventListener('click', function() {
-    let parentElement = button.closest('.collapse');
-    parentElement.classList.toggle('.text-cutter');
+    let parentElement = button.closest('.collapse-text');
+    parentElement.classList.toggle('text-cutter');
   });
 });
