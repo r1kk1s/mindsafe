@@ -37,6 +37,7 @@ services:
    - static_volume:/home/app/web/staticfiles
    - media_volume:/home/app/web/mediafiles
 volumes:
+ letsencrypt:
+ postgres_data:
  static_volume:
  media_volume:
- nginx_conf:
