@@ -14,15 +14,12 @@ services:
   env_file:
    - .env_not_prod
  nginx:
-  build:
-   context: .
-   dockerfile: ./docker/nginx/not_prod/Dockerfile
+  restart: unless-stopped
+  image: nginx:latest
   ports:
-   - 80:80
-  depends_on:
-   - web
-  restart: always
+   - "80:80"
   volumes:
+   - ./docker/nginx/test/:/etc/nginx/conf.d/
    - static_volume:/home/app/web/staticfiles
    - media_volume:/home/app/web/mediafiles
 volumes:

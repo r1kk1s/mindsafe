@@ -26,21 +26,22 @@ services:
    - .env_db
   restart: always
  nginx:
-  build:
-   context: .
-   dockerfile: ./docker/nginx/Dockerfile
-  ports:
-   - 80:80
-   - 443:443
+  restart: unless-stopped
+  image: staticfloat/nginx-certbot
   depends_on:
    - web
-  restart: always
+  ports:
+   - "80:80"
+   - "443:443"
+  environment:
+   CERTBOT_EMAIL: robert2217@icloud.com
   volumes:
-   - /etc/nginx/ssl:/etc/nginx/ssl
+   - ./docker/nginx/conf/:/etc/nginx/user.conf.d:ro
+   - letsencrypt:/etc/letsencrypt
    - static_volume:/home/app/web/staticfiles
    - media_volume:/home/app/web/mediafiles
 volumes:
+ letsencrypt:
  postgres_data:
  static_volume:
  media_volume:
- nginx_conf:
